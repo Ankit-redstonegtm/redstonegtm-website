@@ -3,21 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --red: #DC2626;
-  --black: #020617;
-  --olive: #839791;
-  --sun: #F2C14E;
-  --bronze: #F6AE2D;
+  --ink: #1C1917;
+  --paper: #FBF9F5;
+  --paper-alt: #F2ECE1;
+  --stone: #6B6459;
+  --line: #E7DFD1;
+  --ember: #AE3B1C;
+  --ember-dark: #8A2E15;
 }
 
 * {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--black);
-  color: white;
+  background-color: var(--paper);
+  color: var(--ink);
   overflow-x: hidden;
 }
 
@@ -26,39 +37,22 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0f1a;
+  background: var(--paper-alt);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--red);
+  background: var(--ember);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ef4444;
+  background: var(--ember-dark);
 }
 
-/* Gradient text — red only */
-.gradient-text {
-  background: linear-gradient(135deg, #ef4444, #DC2626);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Olive accent text */
-.olive-text {
-  color: var(--olive);
-}
-
-/* Glow effect */
-.red-glow {
-  box-shadow: 0 0 40px rgba(220, 38, 38, 0.12);
-}
-
-.olive-glow {
-  box-shadow: 0 0 30px rgba(131, 151, 145, 0.08);
-}
-
-/* Stat numbers */
-.stat-number {
-  text-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
+/* Visible focus states for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

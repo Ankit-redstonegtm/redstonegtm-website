@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { LeadFormProvider } from './context/LeadForm';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ProblemFraming from './components/ProblemFraming';
 import HowItWorks from './components/HowItWorks';
-import Engine from './components/Engine';
-import OutreachKit from './components/OutreachKit';
+import Capabilities from './components/Capabilities';
+import OperatingModel from './components/OperatingModel';
+import FounderLed from './components/FounderLed';
+import AboutFounder from './components/AboutFounder';
 import WallOfLove from './components/WallOfLove';
-import Guarantee from './components/Guarantee';
-import CTA from './components/CTA';
+import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -21,15 +23,17 @@ export default function App() {
 
   return (
     <LeadFormProvider>
-      <div className="bg-slate-950 text-white overflow-x-hidden">
+      <div className="bg-paper text-ink overflow-x-hidden">
         <Navbar scrolled={scrolled} />
         <Hero />
+        <ProblemFraming />
         <HowItWorks />
-        <Engine />
-        <OutreachKit />
+        <Capabilities />
+        <OperatingModel />
+        <FounderLed />
+        <AboutFounder />
         <WallOfLove />
-        <Guarantee />
-        <CTA />
+        <FinalCTA />
         <Footer />
       </div>
     </LeadFormProvider>

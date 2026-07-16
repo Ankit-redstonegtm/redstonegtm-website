@@ -7,19 +7,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          red: '#DC2626',
-          black: '#020617',
-          olive: '#839791',
-          sun: '#F2C14E',
-          bronze: '#F6AE2D',
+        ink: '#1C1917',
+        paper: '#FBF9F5',
+        'paper-alt': '#F2ECE1',
+        stone: {
+          DEFAULT: '#6B6459',
+          soft: '#8C8577',
         },
-        red: {
-          950: '#2d0000',
-        }
+        line: '#E7DFD1',
+        ember: {
+          DEFAULT: '#AE3B1C',
+          dark: '#8A2E15',
+          soft: '#F5E7DE',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        content: '1240px',
       },
     },
   },

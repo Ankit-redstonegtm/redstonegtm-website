@@ -1,80 +1,60 @@
-import { ArrowRight, Map, Sparkles, Rocket } from 'lucide-react';
+import { Compass, Search, Radar, ListOrdered, Send, RefreshCw, ArrowRight, ArrowDown } from 'lucide-react';
+import { flowStages } from '../data/content';
+import SectionHeading from './ui/SectionHeading';
 
-const steps = [
-  {
-    number: '01',
-    icon: Map,
-    title: 'We map your market',
-    line: 'Your total addressable market, built as an account-level universe right inside your CRM.',
-  },
-  {
-    number: '02',
-    icon: Sparkles,
-    title: 'We score & research it',
-    line: 'Every account graded A/B/C, enriched with contacts, signals, and a ready-to-read brief.',
-  },
-  {
-    number: '03',
-    icon: Rocket,
-    title: 'Your reps sell',
-    line: 'They open HubSpot to accounts that are already done — and spend the day selling.',
-  },
-];
+const icons = { Compass, Search, Radar, ListOrdered, Send, RefreshCw };
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="py-24 px-4 sm:px-6 lg:px-8 relative">
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: 'rgba(10,16,28,0.2)' }} />
+    <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 bg-paper-alt">
+      <div className="max-w-content mx-auto">
+        <SectionHeading
+          eyebrow="How It Works"
+          title="How Your Revenue System Works"
+          supporting="One connected workflow from market definition to prioritised execution and cleaner CRM data."
+        />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm mb-6 border"
-            style={{ backgroundColor: 'rgba(131,151,145,0.06)', borderColor: 'rgba(131,151,145,0.2)', color: '#839791' }}>
-            How it works
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            From raw market to <span className="gradient-text">ready-to-sell</span>
-          </h2>
-          <p className="mt-4 max-w-xl mx-auto" style={{ color: '#839791' }}>
-            Three steps. Your reps never open a blank account again.
-          </p>
-        </div>
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {flowStages.map((stage, idx) => {
+            const Icon = icons[stage.icon];
+            const isRowEnd = (idx + 1) % 3 === 0;
+            const isLast = idx === flowStages.length - 1;
 
-        <div className="grid md:grid-cols-3 gap-4">
-          {steps.map((step, idx) => (
-            <div key={idx} className="relative group">
-              <div className="h-full rounded-2xl p-7 transition-all duration-300 border"
-                style={{ backgroundColor: 'rgba(10,16,28,0.5)', borderColor: 'rgba(131,151,145,0.12)' }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(220,38,38,0.3)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(131,151,145,0.12)'}
-              >
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: 'rgba(220,38,38,0.1)', border: '1px solid rgba(220,38,38,0.25)' }}>
-                    <step.icon size={20} style={{ color: '#DC2626' }} />
+            return (
+              <div key={stage.n} className="relative">
+                <div className="h-full rounded-2xl border border-line bg-white p-6">
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="w-11 h-11 rounded-xl bg-ember-soft border border-ember/20 flex items-center justify-center">
+                      <Icon size={19} className="text-ember" />
+                    </span>
+                    <span className="text-3xl font-black leading-none text-line">{stage.n}</span>
                   </div>
-                  <div className="text-4xl font-black leading-none" style={{ color: 'rgba(131,151,145,0.12)' }}>
-                    {step.number}
-                  </div>
+                  <h3 className="font-bold text-ink text-lg mb-2">{stage.title}</h3>
+                  <p className="text-sm leading-relaxed text-stone">{stage.description}</p>
                 </div>
-                <h3 className="font-bold text-white text-lg mb-2">{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#839791' }}>{step.line}</p>
+
+                {/* Desktop connector — horizontal, hidden at row end */}
+                {!isLast && !isRowEnd && (
+                  <span
+                    aria-hidden="true"
+                    className="hidden lg:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-paper-alt items-center justify-center"
+                  >
+                    <ArrowRight size={14} className="text-stone-soft" />
+                  </span>
+                )}
+
+                {/* Mobile/tablet connector — vertical */}
+                {!isLast && (
+                  <span
+                    aria-hidden="true"
+                    className="lg:hidden flex justify-center py-2"
+                  >
+                    <ArrowDown size={16} className="text-stone-soft" />
+                  </span>
+                )}
               </div>
-
-              {idx < steps.length - 1 && (
-                <div className="hidden md:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 w-4 h-4 items-center justify-center">
-                  <ArrowRight size={16} style={{ color: 'rgba(220,38,38,0.5)' }} />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <p className="text-lg" style={{ color: '#839791' }}>
-            Most teams see their first scored, researched accounts within{' '}
-            <span className="font-semibold" style={{ color: '#F2C14E' }}>2–3 weeks</span>.
-          </p>
+            );
+          })}
         </div>
       </div>
     </section>
