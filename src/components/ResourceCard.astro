@@ -7,9 +7,10 @@ import type { ResourceEntry } from '../lib/resources';
 interface Props {
   entry: ResourceEntry;
   level?: 2 | 3;
+  trackLocation?: 'resource-card' | 'resources-page';
 }
 
-const { entry, level = 3 } = Astro.props;
+const { entry, level = 3, trackLocation = 'resource-card' } = Astro.props;
 const { resources } = home;
 const { title, description, format, status } = entry.data;
 ---
@@ -30,7 +31,15 @@ const { title, description, format, status } = entry.data;
     )
   }
   <p>{description}</p>
-  <a class="btn" href={site.subscribeUrl} target="_blank" rel="noopener noreferrer">
+  <a
+    class="btn"
+    href={site.subscribeUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-track="Subscribe click"
+    data-track-location={trackLocation}
+    data-track-resource={entry.id}
+  >
     {resources.cta}<span class="sr-only"> (opens in a new tab)</span>
   </a>
 </article>

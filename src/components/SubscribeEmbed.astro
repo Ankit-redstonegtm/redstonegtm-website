@@ -3,14 +3,22 @@ import { site } from '../data/site';
 
 interface Props {
   line: string;
+  resource: string;
 }
 
-const { line } = Astro.props;
+const { line, resource } = Astro.props;
 ---
 
 <div class="subscribe-box">
   <p>{line}</p>
-  <a class="btn substack-embed" href={site.subscribeUrl} data-embed={site.substackEmbed}>
+  <a
+    class="btn substack-embed"
+    href={site.subscribeUrl}
+    data-embed={site.substackEmbed}
+    data-track="Subscribe click"
+    data-track-location="resource-detail"
+    data-track-resource={resource}
+  >
     Subscribe free<span class="sr-only"> (opens in a new tab)</span>
   </a>
 </div>

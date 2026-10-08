@@ -54,7 +54,7 @@ const comingSoon = entry.data.status === 'coming-soon';
         }
         {
           comingSoon && (
-            <SubscribeEmbed line="Get it first. It goes to subscribers before anyone else." />
+            <SubscribeEmbed line="Get it first. It goes to subscribers before anyone else." resource={entry.id} />
           )
         }
         <div class="prose">

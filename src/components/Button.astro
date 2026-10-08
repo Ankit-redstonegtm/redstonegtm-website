@@ -3,9 +3,11 @@ interface Props {
   href: string;
   label: string;
   variant?: 'primary' | 'small' | 'quiet' | 'inverse';
+  track?: string;
+  trackLocation?: string;
 }
 
-const { href, label, variant = 'primary' } = Astro.props;
+const { href, label, variant = 'primary', track, trackLocation } = Astro.props;
 const external = /^https?:\/\//.test(href);
 ---
 
@@ -17,6 +19,8 @@ const external = /^https?:\/\//.test(href);
     variant === 'inverse' && 'btn-inverse',
   ]}
   href={href}
+  data-track={track}
+  data-track-location={trackLocation}
   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 >
   {label}
