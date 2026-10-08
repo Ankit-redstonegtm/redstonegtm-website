@@ -55,8 +55,7 @@ export const home = {
   },
   reframe: {
     eyebrow: 'Why this happens',
-    title: 'More leads will not fix it.',
-    statement: 'The problem is not that you need more leads.',
+    title: 'The problem is not that you need more leads.',
     body: [
       'Another data vendor, another sequencer seat, or a longer list adds volume on top of a broken layer. Reps still open the CRM and start from scratch.',
       'The missing layer is GTM engineering. It connects market mapping, account and contact data, buying signals, research, workflows, and outbound execution so they behave as one system.',
@@ -145,11 +144,12 @@ export const home = {
     eyebrow: 'Evidence',
     title: 'Proof',
     lede: 'Nothing in this section is a client result. Each block is marked as a placeholder for material that can be published later. No names, logos, numbers, or quotations are invented here.',
-    items: [
-      {
-        title: 'Logo strip',
-        body: 'Companies this work has been done with. Empty until they can be named.',
-      },
+    placeholder: '[Proof placeholder]',
+    logos: {
+      title: 'Logo strip',
+      body: 'Companies this work has been done with. Empty until they can be named.',
+    },
+    cases: [
       {
         title: 'Before and after',
         body: 'The state of the market, the CRM, and the outbound motion at kickoff and at handoff.',
@@ -158,11 +158,19 @@ export const home = {
         title: 'Outputs',
         body: 'A sample of the account map, the score, the research note, or the rep view. Shown only from real work.',
       },
-      {
-        title: 'Testimonials',
-        body: 'What a founder or revenue leader would say about the engagement. Not written until they say it.',
-      },
     ],
+    wall: {
+      title: 'Testimonials',
+      body: 'What a founder or revenue leader would say about the engagement. Not written until they say it.',
+      quotes: [
+        { name: '[Proof placeholder]', role: 'Name and company withheld' },
+        { name: '[Proof placeholder]', role: 'Name and company withheld' },
+        { name: '[Proof placeholder]', role: 'Name and company withheld' },
+        { name: '[Proof placeholder]', role: 'Name and company withheld' },
+        { name: '[Proof placeholder]', role: 'Name and company withheld' },
+        { name: '[Proof placeholder]', role: 'Name and company withheld' },
+      ],
+    },
   },
   process: {
     eyebrow: 'Engagement',

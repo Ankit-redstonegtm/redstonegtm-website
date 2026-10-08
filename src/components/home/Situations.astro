@@ -11,15 +11,8 @@ const { situations } = home;
       <h2 id="situations-title">{situations.title}</h2>
       <p class="lede">{situations.lede}</p>
     </div>
-    <ol class="situation-list">
-      {
-        situations.items.map((item, index) => (
-          <li class="situation">
-            <span class="num">{String(index + 1).padStart(2, '0')}</span>
-            <p>{item}</p>
-          </li>
-        ))
-      }
-    </ol>
+    <ul class="situation-list">
+      {situations.items.map((item) => <li>{item}</li>)}
+    </ul>
   </div>
 </section>

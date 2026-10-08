@@ -11,10 +11,10 @@ const { comparison } = home;
       <h2 id="comparison-title">{comparison.title}</h2>
       <p class="lede">{comparison.lede}</p>
     </div>
-    <div class="compare-list">
+    <div class="value-grid cols-4">
       {
         comparison.items.map((item) => (
-          <article class="compare-row">
+          <article>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
           </article>

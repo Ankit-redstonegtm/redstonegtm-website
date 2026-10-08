@@ -1,5 +1,7 @@
 ---
+import Button from '../Button.astro';
 import { home } from '../../data/home';
+import { bookingCta, site } from '../../data/site';
 
 const { ownership } = home;
 ---
@@ -11,20 +13,22 @@ const { ownership } = home;
       <h2 id="ownership-title">{ownership.title}</h2>
       <p class="lede">{ownership.lede}</p>
     </div>
-    <div class="own-list">
+    <div class="service-grid">
       {
-        ownership.groups.map((group, index) => (
-          <article class="own-row">
-            <div class="own-title">
-              <span class="num">{String(index + 1).padStart(2, '0')}</span>
+        ownership.groups.map((group) => (
+          <article class="service-card">
+            <p class="service-panel">{group.summary}</p>
+            <div class="service-body">
               <h3>{group.title}</h3>
+              <ul class="feature-list">
+                {group.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+              <div class="service-cta">
+                <Button href={site.bookingUrl} label={bookingCta} />
+              </div>
             </div>
-            <p class="own-summary">{group.summary}</p>
-            <ul class="ticks">
-              {group.items.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
           </article>
         ))
       }

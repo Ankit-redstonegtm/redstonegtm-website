@@ -2,25 +2,68 @@
 import { home } from '../../data/home';
 
 const { proof } = home;
+const slots = [0, 1, 2, 3, 4, 5];
 ---
 
-<section class="section band" id="proof" aria-labelledby="proof-title">
+<section class="section" id="proof" aria-labelledby="proof-title">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">{proof.eyebrow}</p>
       <h2 id="proof-title">{proof.title}</h2>
       <p class="lede">{proof.lede}</p>
     </div>
-    <div class="proof-grid">
+
+    <div class="logo-block">
+      <h3>{proof.logos.title}</h3>
+      <p>{proof.logos.body}</p>
+      <ul class="logo-row" aria-label={proof.logos.title}>
+        {
+          slots.map(() => (
+            <li>{proof.placeholder}</li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="case-grid">
       {
-        proof.items.map((item) => (
-          <article class="proof-item">
-            <p class="proof-kicker">[Proof placeholder]</p>
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
+        proof.cases.map((item) => (
+          <article class="case-card">
+            <div class="case-media">{proof.placeholder}</div>
+            <div class="case-body">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
           </article>
         ))
       }
     </div>
+
+    <div class="wall-head">
+      <h3>{proof.wall.title}</h3>
+      <p>{proof.wall.body}</p>
+    </div>
+  </div>
+  <div class="marquee" aria-label={proof.wall.title}>
+    <ul class="marquee-track">
+      {
+        proof.wall.quotes.map((quote) => (
+          <li class="quote-card">
+            <p class="quote-text">{proof.placeholder}</p>
+            <p class="quote-name">{quote.name}</p>
+            <p class="quote-role">{quote.role}</p>
+          </li>
+        ))
+      }
+      {
+        proof.wall.quotes.map((quote) => (
+          <li class="quote-card" aria-hidden="true">
+            <p class="quote-text">{proof.placeholder}</p>
+            <p class="quote-name">{quote.name}</p>
+            <p class="quote-role">{quote.role}</p>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>

@@ -5,16 +5,11 @@ const { reframe } = home;
 ---
 
 <section class="section" id="reframe" aria-labelledby="reframe-title">
-  <div class="wrap reframe-layout">
-    <div>
-      <p class="eyebrow">{reframe.eyebrow}</p>
-      <h2 id="reframe-title">{reframe.title}</h2>
-    </div>
-    <div>
-      <p class="statement">{reframe.statement}</p>
-      <div class="reframe-body">
-        {reframe.body.map((paragraph) => <p>{paragraph}</p>)}
-      </div>
+  <div class="wrap reframe">
+    <p class="eyebrow">{reframe.eyebrow}</p>
+    <h2 id="reframe-title">{reframe.title}</h2>
+    <div class="reframe-body">
+      {reframe.body.map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </div>
 </section>

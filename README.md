@@ -117,7 +117,7 @@ No third-party API keys are required for the current stub.
 - Portrait: `src/assets/founder.png`, cropped from `founder.png`. `public/founder.png` is the stable URL used in JSON-LD.
 - Favicon, apple touch icon, and the default Open Graph image are in `public/`.
 - Colleague portraits in `public/` (`stefan.jpg`, `elias.jpg`, `chris.jpg`, `loriauna.jpg`) are kept from the previous site and are not used. The proof section is placeholders only.
-- Headlines use Newsreader. Body and UI use Inter. Both are self-hosted Latin subsets via Fontsource. Stone Soft (`#8C8577`) is used only for large index numerals (26px), where it meets large-text contrast. Smaller captions use Stone (`#5C5C5C`).
+- Type is self-hosted DM Sans (Latin 400, 500, and 700). Headlines are heavy, with tight tracking. Stone (`#5C5C5C`) is used for body and captions.
 
 ## SEO
 

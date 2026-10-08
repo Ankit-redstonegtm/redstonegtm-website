@@ -7,23 +7,21 @@ const { hero } = home;
 ---
 
 <section class="section hero" aria-labelledby="hero-title">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">{hero.eyebrow}</p>
-      <h1 id="hero-title">{hero.title}</h1>
-      <p class="lede">{hero.lede}</p>
-      <p class="support">{hero.support}</p>
-      <div class="hero-actions">
-        <Button href={site.bookingUrl} label={bookingCta} />
-        <a class="text-link" href="#how-it-works">{hero.secondary}</a>
-      </div>
+  <div class="wrap hero-copy">
+    <p class="eyebrow">{hero.eyebrow}</p>
+    <h1 id="hero-title">{hero.title}</h1>
+    <p class="lede">{hero.lede}</p>
+    <p class="support">{hero.support}</p>
+    <div class="hero-actions">
+      <Button href={site.bookingUrl} label={bookingCta} />
+      <a class="text-link" href="#how-it-works">{hero.secondary}</a>
     </div>
-    <aside class="hero-panel">
-      <h2>{hero.panelTitle}</h2>
+    <div class="hero-for">
+      <p class="hero-for-title">{hero.panelTitle}</p>
       <ul class="role-list">
         {hero.panelItems.map((item) => <li>{item}</li>)}
       </ul>
       <p class="panel-note">{hero.panelNote}</p>
-    </aside>
+    </div>
   </div>
 </section>
