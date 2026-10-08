@@ -1,4 +1,3 @@
-import { home } from '../data/home';
 import { site } from '../data/site';
 
 export function serializeJsonLd(data: unknown) {
@@ -16,6 +15,7 @@ export function organizationJsonLd() {
     jobTitle: site.founder.jobTitle,
     url: `${site.url}/`,
     image: `${site.url}/founder.png`,
+    email: site.email,
     workLocation: {
       '@type': 'Place',
       address: {
@@ -25,11 +25,8 @@ export function organizationJsonLd() {
       },
     },
     worksFor: { '@id': orgId },
+    sameAs: [...site.founder.sameAs],
   };
-
-  if (site.founder.sameAs.length > 0) {
-    person.sameAs = [...site.founder.sameAs];
-  }
 
   return {
     '@context': 'https://schema.org',
@@ -42,6 +39,7 @@ export function organizationJsonLd() {
         description: site.description,
         image: `${site.url}/og.png`,
         logo: `${site.url}/icon-512.png`,
+        email: site.email,
         founder: { '@id': personId },
         areaServed: 'Worldwide',
         address: {
@@ -49,32 +47,15 @@ export function organizationJsonLd() {
           addressLocality: site.founder.location,
           addressCountry: 'IN',
         },
+        sameAs: [...site.founder.sameAs],
         knowsAbout: [
-          'GTM engineering',
-          'Total addressable market mapping',
-          'Account and contact prioritization',
-          'Buying signals',
-          'Outbound systems',
-          'CRM data quality',
+          'Research-led outbound',
+          'Account research',
+          'Sales-led vertical B2B SaaS',
         ],
       },
       person,
     ],
-  };
-}
-
-export function faqJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: home.faq.items.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer.join(' '),
-      },
-    })),
   };
 }
 

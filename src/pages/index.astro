@@ -1,30 +1,27 @@
 ---
-import Comparison from '../components/home/Comparison.astro';
-import Faq from '../components/home/Faq.astro';
+import About from '../components/home/About.astro';
+import BetterWay from '../components/home/BetterWay.astro';
+import Difference from '../components/home/Difference.astro';
 import FinalCta from '../components/home/FinalCta.astro';
-import Fractional from '../components/home/Fractional.astro';
 import Hero from '../components/home/Hero.astro';
-import Ownership from '../components/home/Ownership.astro';
-import Problems from '../components/home/Problems.astro';
-import Process from '../components/home/Process.astro';
+import Problem from '../components/home/Problem.astro';
 import Proof from '../components/home/Proof.astro';
-import Reframe from '../components/home/Reframe.astro';
-import Situations from '../components/home/Situations.astro';
 import { home } from '../data/home';
 import Base from '../layouts/Base.astro';
-import { faqJsonLd } from '../lib/jsonld';
 ---
 
-<Base title={home.meta.title} description={home.meta.description} jsonLd={[faqJsonLd()]}>
+<Base
+  title={home.meta.title}
+  description={home.meta.description}
+  ogTitle={home.meta.ogTitle}
+  ogDescription={home.meta.ogDescription}
+  imageAlt={home.meta.imageAlt}
+>
   <Hero />
-  <Situations />
-  <Problems />
-  <Reframe />
-  <Fractional />
-  <Ownership />
+  <Difference />
+  <Problem />
+  <BetterWay />
   <Proof />
-  <Process />
-  <Comparison />
-  <Faq />
+  <About />
   <FinalCta />
 </Base>

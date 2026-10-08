@@ -7,33 +7,35 @@ export const site = {
   name: 'Redstone GTM',
   url: clean(import.meta.env.PUBLIC_SITE_URL, 'https://redstonegtm.com'),
   description:
-    'Ankit Singh is a fractional GTM engineer for sales-led vertical B2B SaaS companies. Market mapping, account data, buying signals, and outbound systems.',
-  bookingUrl: clean(import.meta.env.PUBLIC_BOOKING_URL, 'https://cal.com/redstone-gtm/discovery'),
+    'Ankit Singh helps sales-led vertical SaaS teams find companies with a reason to talk to them now, and turns that research into outbound worth replying to.',
+  bookingUrl: clean(
+    import.meta.env.PUBLIC_BOOKING_URL,
+    'https://cal.com/ankit-singh-gtm/discovery-call',
+  ),
   /**
-   * Leave empty until an inline Cal.com or Calendly embed should render.
-   * The final call-to-action already mounts the embed slot.
+   * Leave empty. The locked homepage does not mount an inline scheduler.
    */
   bookingEmbedUrl: (import.meta.env.PUBLIC_BOOKING_EMBED_URL || '').trim(),
   leadFormEndpoint: (import.meta.env.PUBLIC_LEAD_FORM_ENDPOINT || '/api/lead').trim() || '/api/lead',
   locale: 'en_US',
-  email: '',
+  email: 'ankit@redstonegtm.com',
+  linkedin: 'https://www.linkedin.com/in/ankit-gtm/',
   founder: {
     name: 'Ankit Singh',
-    jobTitle: 'Fractional GTM Engineer',
+    jobTitle: 'Founder',
     location: 'Bangalore',
-    /** Add public profile URLs here when they should appear in JSON-LD. */
-    sameAs: [] as string[],
+    sameAs: ['https://www.linkedin.com/in/ankit-gtm/'],
   },
 } as const;
 
-export const bookingCta = 'Book a call';
+export const navCta = "Let's talk";
+
+export const primaryCta = "Let's talk about your market";
 
 export const nav = [
-  { label: 'Situations', href: '/#situations' },
-  { label: 'What I own', href: '/#what-i-own' },
+  { label: 'Examples', href: '/#examples' },
   { label: 'How it works', href: '/#how-it-works' },
-  { label: 'FAQ', href: '/#faq' },
-  { label: 'Resources', href: '/resources' },
+  { label: 'About Ankit', href: '/#about' },
 ] as const;
 
 export const resourceTypeLabel = {

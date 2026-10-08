@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import mark from '../assets/mark.png';
 import Button from './Button.astro';
-import { bookingCta, nav, site } from '../data/site';
+import { nav, navCta, site } from '../data/site';
 
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
@@ -31,8 +31,9 @@ function current(href: string) {
     <div class="header-actions">
       <details class="menu">
         <summary>
-          <span class="when-closed">Menu</span>
-          <span class="when-open">Close</span>
+          <span class="menu-glyph" aria-hidden="true"></span>
+          <span class="sr-only when-closed">Open menu</span>
+          <span class="sr-only when-open">Close menu</span>
         </summary>
         <nav class="menu-panel" aria-label="Mobile">
           {
@@ -44,7 +45,7 @@ function current(href: string) {
           }
         </nav>
       </details>
-      <Button href={site.bookingUrl} label={bookingCta} variant="small" />
+      <Button href={site.bookingUrl} label={navCta} variant="small" />
     </div>
   </div>
 </header>

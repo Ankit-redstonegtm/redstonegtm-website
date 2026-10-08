@@ -1,27 +1,62 @@
 ---
 import Button from '../Button.astro';
 import { home } from '../../data/home';
-import { bookingCta, site } from '../../data/site';
+import { site } from '../../data/site';
 
 const { hero } = home;
+const [market, one, evidence, email, goal] = hero.stages;
 ---
 
 <section class="section hero" aria-labelledby="hero-title">
   <div class="wrap hero-copy">
     <p class="eyebrow">{hero.eyebrow}</p>
     <h1 id="hero-title">{hero.title}</h1>
-    <p class="lede">{hero.lede}</p>
-    <p class="support">{hero.support}</p>
+    <p class="lede">{hero.subhead}</p>
     <div class="hero-actions">
-      <Button href={site.bookingUrl} label={bookingCta} />
-      <a class="text-link" href="#how-it-works">{hero.secondary}</a>
+      <Button href={site.bookingUrl} label={hero.primary} />
+      <a class="btn btn-quiet" href="#examples">{hero.secondary}</a>
     </div>
-    <div class="hero-for">
-      <p class="hero-for-title">{hero.panelTitle}</p>
-      <ul class="role-list">
-        {hero.panelItems.map((item) => <li>{item}</li>)}
-      </ul>
-      <p class="panel-note">{hero.panelNote}</p>
-    </div>
+    <p class="micro">{hero.microcopy}</p>
+  </div>
+
+  <div class="wrap">
+    <figure class="strip">
+      <ol class="strip-stages">
+        <li class="stage stage-market">
+          <p class="stage-kicker">{market.kicker}</p>
+          <div class="market-grid" aria-hidden="true">
+            {Array.from({ length: 8 }, () => <span class="market-row" />)}
+          </div>
+          <p class="stage-detail">{market.detail}</p>
+        </li>
+        <li class="stage stage-one">
+          <p class="stage-kicker">{one.kicker}</p>
+          <p class="northstar-row">{one.detail}</p>
+        </li>
+        <li class="stage stage-evidence">
+          <p class="stage-kicker">{evidence.kicker}</p>
+          <ul class="evidence-list">
+            {
+              evidence.findings?.map((finding) => (
+                <li>
+                  <span>{finding.text}</span>
+                  <span class="source">{finding.source}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="why-line"><span>Why it might matter: </span>{evidence.why}</p>
+        </li>
+        <li class="stage stage-email">
+          <p class="stage-kicker">{email.kicker}</p>
+          <p class="email-line">{email.detail}</p>
+        </li>
+        <li class="stage stage-reply">
+          <p class="stage-kicker">{goal.kicker}</p>
+          <p class="reply">{goal.reply}</p>
+        </li>
+      </ol>
+      <figcaption>{hero.stripLabel}</figcaption>
+    </figure>
   </div>
 </section>

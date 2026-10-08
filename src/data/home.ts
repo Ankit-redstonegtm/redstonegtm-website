@@ -1,286 +1,405 @@
-/**
- * Draft homepage copy. Edit this file.
- * Components render these strings and do not keep their own marketing copy.
- * FAQ answers are drafts and are labeled as such on the page.
- */
-
 export const home = {
   meta: {
-    title: 'Fractional GTM engineering for vertical SaaS | Redstone GTM',
+    title: 'Redstone GTM: Research-led outbound for vertical B2B SaaS',
     description:
-      'Ankit Singh works with sales-led vertical B2B SaaS companies on market mapping, account data, buying signals, and outbound systems. Book a call.',
+      'Ankit Singh helps sales-led vertical SaaS teams find companies with a reason to talk to them now, and turns that research into outbound worth replying to.',
+    ogTitle: 'Fit tells you who could buy. Evidence tells you who has a reason to talk now.',
+    ogDescription: 'Research-led outbound for sales-led vertical B2B SaaS, by Ankit Singh.',
+    imageAlt: 'Illustrative Northstar Retail evidence card. Redstone GTM.',
   },
   hero: {
-    eyebrow: 'Fractional GTM engineering',
-    title: 'A market the team trusts, and outbound they can repeat.',
-    lede: 'I’m Ankit Singh, a fractional GTM engineer in Bangalore. Through Redstone GTM I work with founders and revenue leaders at sales-led vertical B2B SaaS companies.',
-    support:
-      'I map the market, make account and contact data usable, and turn buying signals into a motion the team can run without a senior rep doing the research by hand.',
-    secondary: 'How an engagement runs',
-    panelTitle: 'Who it’s for',
-    panelItems: [
-      'Founders',
-      'Chief revenue officers',
-      'VPs and heads of Sales, Marketing, Growth, and RevOps',
-    ],
-    panelNote:
-      'Sales-led companies selling into a defined vertical. One market and one sales motion, built with the people who will run it.',
-  },
-  situations: {
-    eyebrow: 'Buying situations',
-    title: 'You probably need me if…',
-    lede: 'A few of these are usually already true. You do not need all of them.',
-    items: [
-      'You are hiring or ramping account executives and do not have enough of the right market for them.',
-      'You are entering a new vertical or geography and the market is not mapped.',
-      'Reps spend too much of the day researching instead of selling.',
-      'The CRM or the TAM is large, and nobody trusts it or knows what to work first.',
-      'You are buying data and tools, and reps still do not know who to contact, why now, or what to say.',
-      'Signals are scattered across the web and the CRM, with no system turning them into a rep action.',
-      'Outbound is strong only when a top rep does the research manually, and that cannot be reproduced.',
-      'More accounts exist beyond LinkedIn and your database, and you do not know how much of the market you are missing.',
-    ],
-  },
-  problems: {
-    eyebrow: 'The pattern',
-    title: 'This is you',
-    lede: 'The symptoms show up in the weekly forecast, not in a tooling diagram.',
-    items: [
-      'Reps spend too much time figuring out who to target.',
-      'The TAM is incomplete, or it lives in pieces nobody can reconcile.',
-      'CRM data goes stale, and people stop using it.',
-      'Buying signals are noticed, then not operationalized.',
-      'Outbound research and execution change depending on who is doing the work.',
+    eyebrow: 'For sales-led vertical B2B SaaS teams',
+    title: 'Plenty of companies fit your market. Far fewer have a reason to talk to you now.',
+    subhead:
+      'I find the companies dealing with the problem your product solves, show you the evidence, and turn it into outbound worth replying to. The goal is simple: more of the right sales conversations.',
+    primary: "Let's talk about your market",
+    secondary: 'See the difference ↓',
+    microcopy: "You'll talk to me, not a sales team. Bring what you sell.",
+    stripLabel: 'Illustrative example. Northstar Retail is a fictional company.',
+    stages: [
+      {
+        kicker: 'Your market',
+        detail: 'Hundreds of companies that fit',
+      },
+      {
+        kicker: 'One has something going on',
+        detail: 'Northstar Retail',
+      },
+      {
+        kicker: 'The evidence',
+        findings: [
+          { text: 'Announced expansion into the Southeast', source: 'Press release' },
+          { text: 'Hiring 4 regional sales directors', source: 'Careers page' },
+        ],
+        why: 'More reps in more places usually makes coverage harder to manage.',
+      },
+      {
+        kicker: 'A reason to reach out',
+        detail:
+          'Saw Northstar is expanding into the Southeast and hiring regional sales directors to run it…',
+      },
+      {
+        kicker: 'The goal: a real conversation',
+        reply: 'Funny timing. We were just talking about this.',
+      },
     ],
   },
-  reframe: {
-    eyebrow: 'Why this happens',
-    title: 'The problem is not that you need more leads.',
-    body: [
-      'Another data vendor, another sequencer seat, or a longer list adds volume on top of a broken layer. Reps still open the CRM and start from scratch.',
-      'The missing layer is GTM engineering. It connects market mapping, account and contact data, buying signals, research, workflows, and outbound execution so they behave as one system.',
+  difference: {
+    eyebrow: 'The difference',
+    title: 'Same industry. Same size. Same tools. Only one has a reason to reply.',
+    subhead:
+      "Two companies can look identical in your database. One of them might be dealing with the exact problem your product solves this quarter. Pick an example and see what changes when you look for evidence instead of fit.",
+    panels: ['The usual filter', 'What research turns up', 'What you could actually say'] as const,
+    filterLine: 'Every company here fits. Nothing here tells you who to call first.',
+    whyLabel: 'Why it might matter',
+    stillLabel: 'Still unconfirmed',
+    illustrative:
+      'Illustrative example. The companies and people are fictional. The kinds of evidence are real places to look.',
+    closing: 'Which list would you rather hand your team on Monday?',
+    cta: "Let's talk about your market",
+    microcopy: "Tell me what you sell. I'll tell you what I'd look for.",
+    examples: [
+      {
+        id: 'field-sales-software',
+        tab: 'Field sales software',
+        sells: 'software that helps field sales teams plan routes, log visits and manage territories.',
+        chips: ['Home services', '50–500 employees', 'United States'],
+        company: 'Brightline Home Services',
+        companyNote: 'solar and roofing installer',
+        findings: [
+          {
+            text: 'Opened offices in Phoenix and Tucson in the last two months',
+            source: 'Local news, locations page',
+          },
+          {
+            text: 'Hiring three door-to-door sales managers across the two new cities',
+            source: 'Careers page',
+          },
+          {
+            text: 'New job post for a sales coordinator to manage rep schedules',
+            source: 'Job board',
+          },
+        ],
+        why: 'New territories plus new managers is when routing, coverage and visibility tend to get messy.',
+        still: 'whether they already have a tool for this. The message asks instead of assuming.',
+        email: {
+          subject: 'Phoenix and Tucson',
+          paragraphs: [
+            'Hi Dana,',
+            'Saw Brightline opened Phoenix and Tucson and is hiring door-to-door managers for both.',
+            'When a team adds cities this fast, the first thing that slips is usually knowing which rep covered which neighborhood, and when.',
+            'Is that already handled, or still being figured out?',
+          ],
+        },
+      },
+      {
+        id: 'returns-management',
+        tab: 'Returns management',
+        sells: 'software that helps ecommerce brands handle returns and exchanges.',
+        chips: ['Ecommerce', '$20M+ revenue', 'Shopify'],
+        company: 'Fernway Outdoor',
+        companyNote: 'outdoor apparel brand',
+        findings: [
+          { text: 'Launched a footwear line this spring', source: 'New collection pages' },
+          {
+            text: 'Shortened its returns window from 60 to 30 days',
+            source: 'Returns policy page, compared with the archived version',
+          },
+          {
+            text: 'Hiring its first returns and reverse logistics manager',
+            source: 'Careers page',
+          },
+        ],
+        why: 'A category where sizing drives returns, a tighter policy and a new returns hire, all in one season. That can point to returns getting expensive.',
+        still: "it might be routine housekeeping. The message asks; it doesn't diagnose.",
+        email: {
+          subject: 'footwear and the 30-day window',
+          paragraphs: [
+            'Hi Priya,',
+            'Noticed Fernway added footwear this spring and moved returns from 60 to 30 days around the same time.',
+            'When brands add a category where fit is hard to judge online, returns often grow faster than the process built to handle them.',
+            'Was that part of the reason for the change?',
+          ],
+        },
+      },
+      {
+        id: 'retail-analytics',
+        tab: 'Retail analytics',
+        sells: 'analytics software that helps grocers understand shoppers and store performance.',
+        chips: ['Grocery chains', '20+ stores'],
+        company: 'Harbor Fresh Markets',
+        companyNote: '34-store regional grocer',
+        findings: [
+          {
+            text: 'Relaunched its loyalty app with personalized offers',
+            source: 'Press release, app store listing',
+          },
+          { text: 'Announced five stores in a new metro area', source: 'Local business press' },
+          { text: 'Hiring its first Director of Customer Insights', source: 'Careers page' },
+        ],
+        why: "A loyalty relaunch and a brand-new insights role suggest they're collecting more shopper data and want to do more with it.",
+        still: "whether they have the tools for that yet. That's the question worth asking.",
+        email: {
+          subject: 'your new insights role',
+          paragraphs: [
+            'Hi Marcus,',
+            'Saw Harbor Fresh relaunched its loyalty app and is hiring its first Director of Customer Insights.',
+            "That usually means a lot of new shopper data, and pressure to show what it's worth. Five new stores make that question bigger, not smaller.",
+            "Who's deciding how that data gets used across the stores?",
+          ],
+        },
+      },
     ],
   },
-  fractional: {
-    eyebrow: 'The new way',
-    title: 'Fractional GTM engineering.',
+  problem: {
+    eyebrow: 'Why outbound stalls',
+    title: "You probably don't need another tool. Your tools need something to look for.",
     paragraphs: [
-      'Senior capability without hiring a full-time GTM engineer before the motion is proven. I work directly with the team. There is no account manager in between.',
-      'The system is built around your market and your sales motion, then left in a state your people can operate.',
+      "You've got a CRM. Probably a contact database. Maybe an outbound platform too. They're good at telling you who fits. None of them know what makes someone need your product.",
+      'So the list stays broad. The message stays generic. And the replies are polite "not right now"s, or nothing at all. That\'s rarely a copywriting problem. It\'s a "why this company, why now" problem.',
     ],
-    points: [
+    scenes: [
       {
-        title: 'Direct',
-        text: 'You work with the person doing the work, from the market map through the outbound system.',
+        title: "Outbound is running. Conversations aren't.",
+        body: 'The team is busy and the emails go out every day. Most replies are "not a priority" or an unsubscribe. The activity is fine. The reason to talk isn\'t there.',
       },
       {
-        title: 'Specific',
-        text: 'Built around your vertical, your closed-won patterns, and the way your reps actually sell.',
+        title: "You've worked through the obvious accounts.",
+        body: "Every company your team can name has heard from you twice. The ones you haven't found yet don't show up under the filters you've been using.",
       },
       {
-        title: 'Transferable',
-        text: 'Workflows, fields, and documentation live in your accounts. The team can run it after the engagement.',
+        title: 'More pipeline seems to mean more hires.',
+        body: 'Your best rep researches properly, so they can only get through a handful of accounts a day. Everything else gets the template. Three more SDRs means three more people doing the same thing.',
+      },
+      {
+        title: "You're moving into a new market.",
+        body: 'Your targeting and messaging were built for one kind of customer. A new vertical has different triggers, different titles and different words for the same problem.',
       },
     ],
-    portraitAlt: 'Ankit Singh',
-    portraitName: 'Ankit Singh',
-    portraitRole: 'Fractional GTM engineer, Bangalore',
+    closing:
+      'Four different situations. One missing piece: knowing which companies have a reason to talk to you, and what that reason is.',
   },
-  ownership: {
-    eyebrow: 'Scope',
-    title: 'What I own',
-    lede: 'Five parts of one system. The point of each is a rep action, not a dashboard.',
-    groups: [
-      {
-        title: 'Market and TAM mapping',
-        summary:
-          'An account-level view of the vertical, including companies that never show up in a LinkedIn search or the current CRM.',
-        items: [
-          'ICP taken from closed-won work, not a workshop slogan',
-          'Account universe with the firmographics that matter for your motion',
-          'One list the CRM stays in agreement with',
-        ],
-      },
-      {
-        title: 'Account and contact data, and prioritization',
-        summary:
-          'Fit, coverage, and buying-committee priority, so attention goes to the right accounts and the right people.',
-        items: [
-          'Scoring and tiers from your own win patterns',
-          'Contact discovery across providers, then deduplicated',
-          'Persona and priority, so reps know who to approach',
-        ],
-      },
-      {
-        title: 'Buying signals and research',
-        summary: 'The changes that matter in your market, written into the CRM as a reason to act.',
-        items: [
-          'Hiring, leadership, funding, technology, and filing signals on the TAM',
-          'Account research, and a first line where it helps the rep',
-          'Alerts that land as a next action, not a channel nobody reads',
-        ],
-      },
-      {
-        title: 'Outbound systems and activation',
-        summary: 'Routing from score and signal into a motion a new account executive can run.',
-        items: [
-          'Message track, channel, sender, and timing',
-          'Email, LinkedIn, and call lists that use the same research',
-          'A weekly rhythm that does not depend on one strong rep',
-        ],
-      },
-      {
-        title: 'CRM and GTM data reliability',
-        summary: 'Records current enough that people keep using them.',
-        items: [
-          'Enrichment on new leads, and refreshes when data decays',
-          'Duplicate handling and field hygiene',
-          'Scores and properties that campaigns actually gate on',
-        ],
-      },
-    ],
-  },
-  proof: {
-    eyebrow: 'Evidence',
-    title: 'Proof',
-    lede: 'Nothing in this section is a client result. Each block is marked as a placeholder for material that can be published later. No names, logos, numbers, or quotations are invented here.',
-    placeholder: '[Proof placeholder]',
-    logos: {
-      title: 'Logo strip',
-      body: 'Companies this work has been done with. Empty until they can be named.',
-    },
-    cases: [
-      {
-        title: 'Before and after',
-        body: 'The state of the market, the CRM, and the outbound motion at kickoff and at handoff.',
-      },
-      {
-        title: 'Outputs',
-        body: 'A sample of the account map, the score, the research note, or the rep view. Shown only from real work.',
-      },
-    ],
-    wall: {
-      title: 'Testimonials',
-      body: 'What a founder or revenue leader would say about the engagement. Not written until they say it.',
-      quotes: [
-        { name: '[Proof placeholder]', role: 'Name and company withheld' },
-        { name: '[Proof placeholder]', role: 'Name and company withheld' },
-        { name: '[Proof placeholder]', role: 'Name and company withheld' },
-        { name: '[Proof placeholder]', role: 'Name and company withheld' },
-        { name: '[Proof placeholder]', role: 'Name and company withheld' },
-        { name: '[Proof placeholder]', role: 'Name and company withheld' },
-      ],
-    },
-  },
-  process: {
-    eyebrow: 'Engagement',
-    title: 'How it works',
-    lede: 'From kickoff to a system the team can operate. Depth depends on the market and the state of the CRM. Timing is agreed at kickoff, not promised on this page.',
+  method: {
+    eyebrow: 'How it works',
+    title: 'Start with why your customers buy. Then go find everyone else in that spot.',
+    subhead:
+      'Before I look for a single company, I want to understand what makes someone need your product. Then I look for evidence of those situations across your market, find the right people, and build outbound around something worth talking about.',
+    context:
+      'Following one illustrative account: you sell field sales software, and Northstar Retail (fictional) is an in-store merchandising company whose reps visit retail stores.',
+    accountLabel: 'On the Northstar account',
     steps: [
       {
-        title: 'Kickoff',
-        text: 'Sales motion, ICP hypotheses, current tools, and where reps lose time.',
+        title: 'Understand what makes someone buy',
+        body: "I dig into your product, your best customers and the deals you've won. What was going on at those companies when they said yes? What made it urgent?",
+        output:
+          'Your best customers bought when they added territories faster than their managers could keep track of reps. The trigger was growth, not company size.',
       },
       {
-        title: 'Market and data',
-        text: 'TAM, scoring, contact coverage, and the CRM fields that will hold them.',
+        title: 'Find companies in that situation',
+        body: 'Then I look for public evidence of that trigger across your market. Job posts, expansion news, new locations, leadership changes, industry directories, local filings. Wherever your buyers leave traces.',
+        output:
+          'Northstar announced expansion into the Southeast last month. Four regional sales director roles are open.',
       },
       {
-        title: 'Signals and research',
-        text: 'Which triggers matter, and how a rep sees them as a next action.',
+        title: 'Find the people who matter',
+        body: "A good reason is wasted on the wrong person. I work out who owns the problem, who feels it first and who signs off, and find contact details I've checked.",
+        output:
+          'VP of Field Sales (owns coverage). The new regional directors once hired (feel it first). Sales ops manager (will evaluate tools).',
       },
       {
-        title: 'Outbound system',
-        text: 'Routing, message tracks, and the weekly operating rhythm.',
+        title: 'Turn research into outbound',
+        body: "Each message is built around what's actually happening at that company. I test a few angles and keep the ones that start real conversations.",
+        email: {
+          subject: 'the Southeast expansion',
+          paragraphs: [
+            'Hi Elena,',
+            'Saw Northstar is expanding into the Southeast and hiring regional sales directors to run it.',
+            "When reps spread across new states, managers usually lose sight of which stores got visited and which didn't.",
+            'How are you planning to keep coverage visible while the new teams ramp?',
+          ],
+        },
+        angles: 'Angles tested on accounts like this: store coverage · ramp time for new reps · manager visibility',
       },
       {
-        title: 'Handoff',
-        text: 'Documentation, owners, and the checks that keep the system from going stale.',
-      },
-    ],
-  },
-  comparison: {
-    eyebrow: 'Alternatives',
-    title: 'Why fractional',
-    lede: 'The work has to land somewhere. These are the usual places it goes instead.',
-    items: [
-      {
-        title: 'Hiring a full-time GTM engineer',
-        text: 'The right hire once the motion is proven and the backlog is permanent. Earlier, the search and the salary arrive before the system does.',
-      },
-      {
-        title: 'Disconnected freelancers and tools',
-        text: 'A researcher, a list vendor, an enrichment tool, and a sequencer can each be good. Nobody owns whether they produce a rep action.',
-      },
-      {
-        title: 'Lead-gen or appointment-setting agencies',
-        text: 'They run their own motion and sell meetings. You do not keep a market map, or a CRM the team trusts.',
-      },
-      {
-        title: 'Reps or RevOps stitching it together',
-        text: 'It can be done. It competes with quota and with the rest of the operations queue, and it usually stalls.',
+        title: 'Make it repeatable',
+        body: 'The research shouldn\'t start from zero every quarter. I set it up so the same search keeps running, and new companies that show the same signs reach your team with the evidence attached.',
+        output:
+          'Next month, the next company that announces an expansion and starts hiring regional leaders shows up on its own, with the reasons already written down.',
       },
     ],
+    closing:
+      "AI makes the digging faster. It doesn't know what to dig for. Deciding that, and deciding what's worth saying, is judgment. That's most of the job.",
   },
-  faq: {
-    eyebrow: 'Draft answers',
-    title: 'Questions',
-    lede: 'These answers are drafts for review. They describe the intended scope and will be rewritten before this page is treated as final.',
-    items: [
+  proof: {
+    eyebrow: 'The work',
+    title: "You don't get a spreadsheet. You get reasons to reach out.",
+    subhead:
+      'I spent about 2.5 years doing this work at The Kiln, with 20+ clients across different industries. The tools changed every few months. The question never did: why would this company care right now?',
+    brief: {
+      title: 'Account brief · Northstar Retail',
+      label: 'Illustrative. The format I use, filled in with a fictional company.',
+      whoLabel: 'Who they are',
+      who: 'In-store merchandising company. Reps visit retail stores across the Midwest.',
+      whyNowLabel: 'Why now',
+      whyNow: [
+        { text: 'Announced expansion into the Southeast', source: 'Press release, last month' },
+        { text: 'Four regional sales director roles open', source: 'Careers page' },
+        { text: 'New VP of Field Sales joined this year', source: 'LinkedIn' },
+      ],
+      matterLabel: 'Why it might matter',
+      matter: 'Expansion plus new leadership is when coverage and rep visibility get hard to manage.',
+      whoTalkLabel: 'Who to talk to',
+      whoTalk: 'VP of Field Sales first. Sales ops manager second.',
+      angleLabel: 'Opening angle',
+      angle: 'Keeping store coverage visible while new teams ramp.',
+      confidenceLabel: 'Confidence',
+      confidence:
+        'Medium. The expansion and hiring are confirmed. Whether they already have a tool for this is not.',
+      caption: 'Every account comes with the evidence, the source and an honest read on how sure I am.',
+    },
+    modesTitle: 'Choose who runs it. The thinking is the same.',
+    modes: [
       {
-        question: 'What is in scope?',
-        answer: [
-          'Market and TAM mapping, account and contact data, prioritization, buying signals, research workflows, outbound routing, and CRM hygiene for a sales-led motion.',
-          'The engagement is built around one company and one primary market. A second market, or a full inbound redesign, is a separate conversation.',
+        title: 'Done for you',
+        line: 'I build the system and run the outbound.',
+        forLabel: 'For',
+        for: "Teams that need more of the right conversations and don't have the people to chase them.",
+        listLabel: 'What I handle',
+        items: [
+          'Working out why your customers buy',
+          'Finding the companies that show those signs',
+          'Finding the right people and their contact details',
+          'Writing, sending and testing the messages',
+          "Telling you what's working and what isn't",
         ],
+        youLabel: 'What you do',
+        you: "Take the conversations, and tell me what you're hearing so the targeting keeps getting sharper.",
       },
       {
-        question: 'Which tools do you work in?',
-        answer: [
-          'The stack you already run. Common pieces are Salesforce or HubSpot, an enrichment layer such as Clay, a sequencer, and LinkedIn.',
-          'I will say plainly when a tool is the wrong fit. You keep the subscriptions and the seats.',
+        title: 'Built for your team',
+        line: 'I build the system. Your team runs it.',
+        forLabel: 'For',
+        for: 'Teams with sellers who are good at conversations but spend too long on research.',
+        listLabel: 'What I build',
+        items: [
+          'Research workflows and sources for your specific market',
+          'A research assistant your reps can use on any account',
+          'Message angles for the situations your buyers are usually in',
+          'Documentation and training, so your team owns it without me',
         ],
+        youLabel: 'What you do',
+        you: "Run it. You shouldn't need me in the loop.",
+      },
+    ],
+    concept: {
+      label: 'Concept. The real version is built around your market.',
+      prompt: 'Research Northstar Retail for our field sales app.',
+      findingsLabel: 'Findings',
+      findings: [
+        { text: 'Announced expansion into the Southeast', source: 'Press release' },
+        { text: 'Four regional sales director roles open', source: 'Careers page' },
+        { text: 'New VP of Field Sales joined this year', source: 'LinkedIn' },
+      ],
+      peopleLabel: 'People to contact first',
+      people: ['VP of Field Sales', 'Sales ops manager'],
+      anglesLabel: 'Ways to open the conversation',
+      angles: ['store coverage', 'ramp time for new reps', 'manager visibility'],
+    },
+    modesNote: 'No packages to pick from. You can decide which fits after we talk.',
+    fitTitle: 'Is this for you?',
+    goodTitle: 'This is probably for you if',
+    good: [
+      'You sell a sales-led B2B product into a specific industry.',
+      'You can describe the problem your product solves in one sentence.',
+      "Your team could handle more good conversations than it's getting.",
+    ],
+    badTitle: 'Probably not for you if',
+    bad: [
+      'You want 50,000 contacts by Friday.',
+      'Your product is sold self-serve to anyone with a credit card.',
+      "You're looking for guaranteed meetings. I don't promise those. I promise better reasons to start them.",
+    ],
+    cta: "Let's talk about your market",
+  },
+  about: {
+    eyebrow: "Who you'd work with",
+    title: "Hey, I'm Ankit.",
+    paragraphs: [
+      'I spent about 2.5 years at The Kiln, a GTM agency, working with 20+ clients on how they find and reach new customers.',
+      "Most of that time went into a few questions. Which companies are actually worth contacting? Where do you find them when they're not in the usual databases? What makes them relevant this month and not last year? And how do you turn that into a message a busy person answers?",
+      "Different industries, different products, same lesson. Finding more contacts is the easy part. Understanding why a company might need what you sell is the part that starts conversations.",
+      "That's what Redstone GTM is built around.",
+      'When you work with me, you work with me. I do the research, build the systems and write the messages myself. No account managers in between.',
+      "If you're trying to reach more of the right companies, I'd like to hear what you're selling.",
+    ],
+    photoAlt: 'Ankit Singh, founder of Redstone GTM, at an industry event.',
+    facts: ['About 2.5 years at The Kiln', '20+ clients', 'Based in Bangalore'],
+    factsNote: 'The Kiln was my previous employer. Redstone GTM is my own, independent business.',
+    recsTitle: "What it's like working with me",
+    recsSubhead: 'LinkedIn recommendations from people I worked with at The Kiln. Quoted as written.',
+    recsLink: 'Read all recommendations on LinkedIn',
+    recommendations: [
+      {
+        quote:
+          'I worked closely with Ankit as our RevOps team implemented Clay into our GTM tech stack, and he was instrumental in helping us realize value from the platform quickly. Ankit brought a strong POV on the design of our workflows and tables that aligned to our business, and he built some very cool custom research signals for us. … Ankit provided clear, consistent updates, surfaced blockers early, and delivered thorough documentation and workflow maps that enabled our team to own and maintain the solution independently.',
+        name: 'John Gilbert',
+        title: 'Revenue Operations at Narvar',
+        tag: 'LinkedIn recommendation, July 10, 2026',
+        featured: true,
       },
       {
-        question: 'Who owns the system afterward?',
-        answer: [
-          'You do. Workflows, fields, and documentation live in your accounts. I do not hold the data, and the system does not require a retainer to keep running.',
-          'A lighter continuation is available if you want someone maintaining it.',
-        ],
+        quote:
+          "What really sets Ankit apart is his ability to deliver sophisticated solutions while keeping client budgets in check and maximizing ROI. He's also an excellent communicator - he can break down complex technical concepts in a way that makes sense to everyone on the team. … Ankit has this great combination of deep technical skills and business sense.",
+        name: 'Loriauna Mora',
+        title: 'Director of AI (GTM) & Marketing Ops @ Vimeo',
+        tag: 'LinkedIn recommendation, September 15, 2025',
+        featured: false,
       },
       {
-        question: 'How do we work together?',
-        answer: [
-          'Directly. I work with the founder or revenue leader and with the people who will run the system, usually sales leadership and RevOps.',
-          'Working sessions, shared access, and a written record of decisions.',
-        ],
+        quote:
+          'What stands out most is how dependable he is in every collaboration. Whenever we tackle a project together, I know it’s a task that will get done with excellence. His mix of creativity, precision, and follow-through makes him an invaluable teammate and a true asset to any organization.',
+        name: 'Christopher Ocampo',
+        title: 'Head of Technical Operations @ The Kiln | A 2X Company',
+        tag: 'LinkedIn recommendation, September 15, 2025',
+        featured: false,
       },
       {
-        question: 'How long does an engagement take?',
-        answer: [
-          'Often several weeks to a quarter, depending on how defined the ICP is and how messy the CRM is. That range is a draft, not a quote.',
-          'A first working version of the market and the priority list comes before the full operating rhythm. Exact timing is part of kickoff.',
-        ],
-      },
-      {
-        question: 'What if the data is bad?',
-        answer: [
-          'That is a normal starting point. We separate what is usable, what is stale, and what has to be rebuilt.',
-          'A scoring model will not rescue an account list that does not match the market.',
-        ],
-      },
-      {
-        question: 'What is not included?',
-        answer: [
-          'I do not set appointments, run an SDR team, or replace your account executives. I do not buy media or redesign the website.',
-          'Brand campaigns and product marketing sit outside this work unless they are required to define who you sell to.',
-        ],
+        quote:
+          'Working with Ankit has been amazing, he is really thoughtful in the design and building of our Clay tables. We were doing a very complex data test across 20 providers, 3 data types, and 4 global regions with 40+ sub-regions. It required building out one core template + sourcing workflow that would ensure data consistency, cost-consciousness, and be easy to replicate across all of the regions and sub-regions.',
+        name: 'Stefan Kollenberg',
+        title: 'Data Partnerships @ Clay',
+        tag: 'LinkedIn recommendation, October 13, 2025',
+        featured: false,
       },
     ],
   },
   finalCta: {
-    eyebrow: 'Next step',
-    title: 'Talk through the gaps.',
-    lede: 'One conversation about your GTM engineering gaps, or about the outbound system you have now. If the work is not a fit, that should be clear by the end of the call.',
+    title: 'Somewhere outside your current list are companies with a reason to talk to you.',
+    subhead:
+      "If your product solves a real problem, there's probably more to your market than the companies your team already knows. Let's look at what you sell and where those companies might be.",
+    nextLabel: 'What happens next',
+    steps: [
+      { title: 'Pick a time.', body: "It's a call with me, not a sales team." },
+      {
+        title: 'We talk through your market.',
+        body: "What you sell, who buys it today, and what you've already tried.",
+      },
+      {
+        title: 'You get my honest take.',
+        body: "Where I'd start looking, and whether I'm the right person to help. If I'm not, I'll say so.",
+      },
+    ],
+    primary: "Let's talk about your market",
+    emailLabel: 'Email me at ankit@redstonegtm.com',
+    linkedinLabel: 'Message me on LinkedIn',
+    microcopy: 'No pitch deck. No obligation. Just a conversation about your market.',
+  },
+  footer: {
+    line: 'Finding the companies with a reason to talk to you, and starting the conversation.',
+    book: 'Book a call',
+    email: 'ankit@redstonegtm.com',
+    linkedin: 'LinkedIn',
+    note: 'Examples on this site are illustrative and use fictional companies. Recommendations are from LinkedIn and describe my work at The Kiln.',
+    copyright: '© 2026 Redstone GTM · Bangalore, India',
   },
 } as const;

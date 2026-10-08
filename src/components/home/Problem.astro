@@ -1,0 +1,70 @@
+---
+import { home } from '../../data/home';
+
+const { problem } = home;
+---
+
+<section class="section band" aria-labelledby="problem-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{problem.eyebrow}</p>
+      <h2 id="problem-title">{problem.title}</h2>
+      {problem.paragraphs.map((paragraph) => <p class="lede">{paragraph}</p>)}
+    </div>
+    <ol class="scene-grid">
+      {
+        problem.scenes.map((scene, index) => (
+          <li class="scene">
+            <div class="scene-art" aria-hidden="true">
+              {index === 0 && (
+                <div class="art-sent">
+                  <span><i class="art-num"></i> Sent</span>
+                  <span><i class="art-num"></i> Sent</span>
+                  <span><i class="art-num"></i> Sent</span>
+                  <span><i class="art-num"></i> Sent</span>
+                  <span class="art-reply"><i class="art-num art-num-short"></i> Replied</span>
+                </div>
+              )}
+              {index === 1 && (
+                <div class="art-crm">
+                  <span><i /><i class="art-num"></i><em>Contacted</em></span>
+                  <span><i /><i class="art-num"></i><em>Contacted</em></span>
+                  <span><i /><i class="art-num"></i><em>Contacted</em></span>
+                  <span><i /><i class="art-num"></i><em>Contacted</em></span>
+                </div>
+              )}
+              {index === 2 && (
+                <div class="art-tabs">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              )}
+              {index === 3 && (
+                <svg class="art-map" viewBox="0 0 160 72" fill="none">
+                  <path
+                    d="M8 40c8-16 22-22 36-16 10 4 14 2 22-6 8-8 20-8 30-2 12 8 18 6 28 10 8 3 16 2 24-4 4 8 6 18 2 26-8 14-22 16-34 12-10-3-14 2-24 6-12 5-22 2-32-4-8-5-16-4-24 2-8 6-16 4-28-4-6-4-8-12-0-20z"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                  />
+                  <path
+                    d="M96 18c8 2 14 8 16 16 1 6-2 10-8 12-8 2-14-2-16-8-2-8 1-16 8-20z"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  />
+                </svg>
+              )}
+            </div>
+            <h3>{scene.title}</h3>
+            <p>{scene.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="close-line">{problem.closing}</p>
+  </div>
+</section>

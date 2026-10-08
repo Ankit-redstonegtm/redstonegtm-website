@@ -1,6 +1,6 @@
 # Redstone GTM
 
-Marketing site for [Redstone GTM](https://redstonegtm.com), Ankit Singh’s fractional GTM engineering practice in Bangalore. The site’s job is to book a discovery call. A resources section holds one page per lead magnet, video, case study, or link.
+Marketing site for [Redstone GTM](https://redstonegtm.com). Ankit Singh helps sales-led vertical B2B SaaS teams find companies with a reason to talk now. The site’s job is to book a discovery call. A resources section holds one page per lead magnet, video, case study, or link.
 
 The site is an Astro project. Pages are static. The lead-magnet form posts to one on-demand route, deployed with the Vercel adapter.
 
@@ -25,7 +25,7 @@ Copy `.env.example` to `.env` if you want to override the defaults. Public varia
 
 | What | File |
 | --- | --- |
-| Homepage copy, including the draft FAQ | `src/data/home.ts` |
+| Homepage copy | `src/data/home.ts` |
 | Site URL, booking URL, embed URL, lead endpoint, navigation, founder | `src/data/site.ts` |
 | Lead-form UI strings | `src/data/forms.ts` |
 | Lead-magnet file locations (server only) | `src/data/gated-assets.ts` |
@@ -41,13 +41,13 @@ Components do not contain marketing copy. Swap the strings in the data files and
 All of these are optional. The defaults in `src/data/site.ts` and `astro.config.mjs` match `.env.example`.
 
 - `PUBLIC_SITE_URL` — canonical origin, no trailing slash. Used for canonical links, Open Graph, the sitemap, robots.txt, and JSON-LD. The domain is not decided; the default is `https://redstonegtm.com`.
-- `PUBLIC_BOOKING_URL` — every “Book a call” button. Placeholder for Cal.com or Calendly.
-- `PUBLIC_BOOKING_EMBED_URL` — leave empty. When set, an inline iframe renders under the final call to action. No embed script is loaded until this is set.
+- `PUBLIC_BOOKING_URL` — every primary “Let’s talk” button. Default: `https://cal.com/ankit-singh-gtm/discovery-call`.
+- `PUBLIC_BOOKING_EMBED_URL` — leave empty. The locked homepage does not mount an inline scheduler.
 - `PUBLIC_LEAD_FORM_ENDPOINT` — where the lead-magnet form posts. Default `/api/lead`.
 
 Set the same variables in the Vercel project. Changing `PUBLIC_SITE_URL` requires a rebuild.
 
-Founder profile URLs (for example LinkedIn) can be added to `site.founder.sameAs` in `src/data/site.ts`. None are invented here.
+LinkedIn is set on `site.founder.sameAs` in `src/data/site.ts`.
 
 ## Add a resource
 
@@ -116,9 +116,8 @@ No third-party API keys are required for the current stub.
 - Logo: `src/assets/mark.png`, cropped from `Redstone GTM Logo_bg_removed.png`. The original also remains at the repo root and at `public/logo.png`.
 - Portrait: `src/assets/founder.png`, cropped from `founder.png`. `public/founder.png` is the stable URL used in JSON-LD.
 - Favicon, apple touch icon, and the default Open Graph image are in `public/`.
-- Colleague portraits in `public/` (`stefan.jpg`, `elias.jpg`, `chris.jpg`, `loriauna.jpg`) are kept from the previous site and are not used. The proof section is placeholders only.
-- Type is self-hosted DM Sans (Latin 400, 500, and 700). Headlines are heavy, with tight tracking. Stone (`#5C5C5C`) is used for body and captions.
+- Type is self-hosted Inter (Latin 400, 500, and 700). Headlines are heavy, with tight tracking. Stone (`#5C5C5C`) is used for body and captions.
 
 ## SEO
 
-Each page sets its own title and description. The layout adds a canonical URL, Open Graph and Twitter tags, a default 1200×630 image, and JSON-LD for `ProfessionalService` and `Person`. The homepage adds `FAQPage`. Resource pages add `BreadcrumbList`. `robots.txt` and the sitemap are generated at build time from `PUBLIC_SITE_URL`.
+Each page sets its own title and description. The homepage also sets a separate Open Graph title and description. The layout adds a canonical URL, Open Graph and Twitter tags, a default 1200×630 image, and JSON-LD for `ProfessionalService` and `Person`. Resource pages add `BreadcrumbList`. `robots.txt` and the sitemap are generated at build time from `PUBLIC_SITE_URL`.

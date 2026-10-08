@@ -1,20 +1,38 @@
 ---
-import BookingEmbed from '../BookingEmbed.astro';
 import Button from '../Button.astro';
 import { home } from '../../data/home';
-import { bookingCta, site } from '../../data/site';
+import { site } from '../../data/site';
 
 const { finalCta } = home;
 ---
 
-<section class="section final" id="book" aria-labelledby="final-title">
+<section class="final-band" aria-labelledby="final-title">
   <div class="wrap">
-    <p class="eyebrow">{finalCta.eyebrow}</p>
     <h2 id="final-title">{finalCta.title}</h2>
-    <p class="lede">{finalCta.lede}</p>
+    <p class="lede">{finalCta.subhead}</p>
+    <h3>{finalCta.nextLabel}</h3>
+    <ol class="next-steps">
+      {
+        finalCta.steps.map((step, index) => (
+          <li>
+            <span>{index + 1}</span>
+            <p>
+              <strong>{step.title}</strong> {step.body}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
     <div class="hero-actions">
-      <Button href={site.bookingUrl} label={bookingCta} />
+      <Button href={site.bookingUrl} label={finalCta.primary} variant="inverse" />
     </div>
-    <BookingEmbed />
+    <p class="band-links">
+      <a href={`mailto:${site.email}`}>{finalCta.emailLabel}</a>
+      <span aria-hidden="true"> · </span>
+      <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
+        {finalCta.linkedinLabel}<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </p>
+    <p class="micro">{finalCta.microcopy}</p>
   </div>
 </section>

@@ -1,10 +1,10 @@
 ---
 import '../styles/global.css';
-import '@fontsource/dm-sans/latin-400.css';
-import '@fontsource/dm-sans/latin-500.css';
-import '@fontsource/dm-sans/latin-700.css';
-import dmSansBold from '@fontsource/dm-sans/files/dm-sans-latin-700-normal.woff2?url';
-import dmSansRegular from '@fontsource/dm-sans/files/dm-sans-latin-400-normal.woff2?url';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-700.css';
+import interBold from '@fontsource/inter/files/inter-latin-700-normal.woff2?url';
+import interRegular from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
@@ -13,16 +13,29 @@ import { organizationJsonLd, serializeJsonLd } from '../lib/jsonld';
 interface Props {
   title: string;
   description: string;
+  ogTitle?: string;
+  ogDescription?: string;
   image?: string;
+  imageAlt?: string;
   robots?: string;
   jsonLd?: unknown[];
 }
 
-const { title, description, image = '/og.png', robots, jsonLd = [] } = Astro.props;
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  image = '/og.png',
+  imageAlt = 'Illustrative Northstar Retail evidence card. Redstone GTM.',
+  robots,
+  jsonLd = [],
+} = Astro.props;
 const origin = Astro.site ?? site.url;
 const canonical = new URL(Astro.url.pathname, origin).href;
 const imageUrl = new URL(image, origin).href;
-const imageAlt = `${site.name}. Fractional GTM engineering for sales-led vertical SaaS.`;
+const socialTitle = ogTitle || title;
+const socialDescription = ogDescription || description;
 const graphs = [organizationJsonLd(), ...jsonLd];
 ---
 
@@ -41,8 +54,8 @@ const graphs = [organizationJsonLd(), ...jsonLd];
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:locale" content={site.locale} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={socialDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:width" content="1200" />
@@ -50,15 +63,15 @@ const graphs = [organizationJsonLd(), ...jsonLd];
     <meta property="og:image:alt" content={imageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={socialDescription} />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={imageAlt} />
 
     <link rel="icon" href="/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preload" href={dmSansBold} as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href={dmSansRegular} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={interBold} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={interRegular} as="font" type="font/woff2" crossorigin="anonymous" />
 
     <Fragment set:html={graphs.map((graph) => `<script type="application/ld+json">${serializeJsonLd(graph)}</script>`).join('')} />
   </head>

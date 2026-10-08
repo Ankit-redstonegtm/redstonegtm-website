@@ -1,69 +1,145 @@
 ---
+import Button from '../Button.astro';
 import { home } from '../../data/home';
+import { site } from '../../data/site';
 
 const { proof } = home;
-const slots = [0, 1, 2, 3, 4, 5];
+const [done, built] = proof.modes;
 ---
 
-<section class="section" id="proof" aria-labelledby="proof-title">
+<section class="section proof" aria-labelledby="proof-title">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">{proof.eyebrow}</p>
       <h2 id="proof-title">{proof.title}</h2>
-      <p class="lede">{proof.lede}</p>
+      <p class="lede">{proof.subhead}</p>
     </div>
 
-    <div class="logo-block">
-      <h3>{proof.logos.title}</h3>
-      <p>{proof.logos.body}</p>
-      <ul class="logo-row" aria-label={proof.logos.title}>
-        {
-          slots.map(() => (
-            <li>{proof.placeholder}</li>
-          ))
-        }
-      </ul>
-    </div>
+    <figure class="account-brief">
+      <div class="doc">
+        <header class="doc-head">
+          <p>{proof.brief.title}</p>
+        </header>
+        <p class="doc-label">{proof.brief.label}</p>
+        <dl>
+          <div>
+            <dt>{proof.brief.whoLabel}</dt>
+            <dd>{proof.brief.who}</dd>
+          </div>
+          <div>
+            <dt>{proof.brief.whyNowLabel}</dt>
+            <dd>
+              <ul class="finding-list">
+                {
+                  proof.brief.whyNow.map((item) => (
+                    <li>
+                      <span>{item.text}</span>
+                      <span class="source">{item.source}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt>{proof.brief.matterLabel}</dt>
+            <dd>{proof.brief.matter}</dd>
+          </div>
+          <div>
+            <dt>{proof.brief.whoTalkLabel}</dt>
+            <dd>{proof.brief.whoTalk}</dd>
+          </div>
+          <div>
+            <dt>{proof.brief.angleLabel}</dt>
+            <dd>{proof.brief.angle}</dd>
+          </div>
+        </dl>
+        <p class="margin-note">
+          <strong>{proof.brief.confidenceLabel}: </strong>
+          {proof.brief.confidence}
+        </p>
+      </div>
+      <figcaption>{proof.brief.caption}</figcaption>
+    </figure>
 
-    <div class="case-grid">
-      {
-        proof.cases.map((item) => (
-          <article class="case-card">
-            <div class="case-media">{proof.placeholder}</div>
-            <div class="case-body">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
+    <h3 class="modes-title">{proof.modesTitle}</h3>
+    <div class="mode-grid">
+      <article class="mode-card">
+        <h3>{done.title}</h3>
+        <p class="mode-line">{done.line}</p>
+        <p><strong>{done.forLabel}: </strong>{done.for}</p>
+        <p class="list-label">{done.listLabel}</p>
+        <ul class="plain-list">
+          {done.items.map((item) => <li>{item}</li>)}
+        </ul>
+        <p><strong>{done.youLabel}: </strong>{done.you}</p>
+      </article>
+      <article class="mode-card">
+        <h3>{built.title}</h3>
+        <p class="mode-line">{built.line}</p>
+        <p><strong>{built.forLabel}: </strong>{built.for}</p>
+        <p class="list-label">{built.listLabel}</p>
+        <ul class="plain-list">
+          {built.items.map((item) => <li>{item}</li>)}
+        </ul>
+        <p><strong>{built.youLabel}: </strong>{built.you}</p>
+        <div class="concept">
+          <p class="concept-label">{proof.concept.label}</p>
+          <div class="chat" aria-label={proof.concept.prompt}>
+            <p class="chat-ask">{proof.concept.prompt}</p>
+            <div class="chat-answer">
+              <div class="chat-line">
+                <p class="list-label">{proof.concept.findingsLabel}</p>
+                <ul class="finding-list">
+                  {
+                    proof.concept.findings.map((item) => (
+                      <li>
+                        <span>{item.text}</span>
+                        <span class="source">{item.source}</span>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div class="chat-line">
+                <p class="list-label">{proof.concept.peopleLabel}</p>
+                <ul class="plain-list">
+                  {proof.concept.people.map((person) => <li>{person}</li>)}
+                </ul>
+              </div>
+              <div class="chat-line">
+                <p class="list-label">{proof.concept.anglesLabel}</p>
+                <ul class="plain-list">
+                  {proof.concept.angles.map((angle) => <li>{angle}</li>)}
+                </ul>
+              </div>
             </div>
-          </article>
-        ))
-      }
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="micro modes-note">{proof.modesNote}</p>
+
+    <div class="fit">
+      <h3>{proof.fitTitle}</h3>
+      <div class="fit-grid">
+        <div>
+          <h4>{proof.goodTitle}</h4>
+          <ul class="plain-list">
+            {proof.good.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h4>{proof.badTitle}</h4>
+          <ul class="plain-list">
+            {proof.bad.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="wall-head">
-      <h3>{proof.wall.title}</h3>
-      <p>{proof.wall.body}</p>
+    <div class="section-close">
+      <Button href={site.bookingUrl} label={proof.cta} />
     </div>
-  </div>
-  <div class="marquee" aria-label={proof.wall.title}>
-    <ul class="marquee-track">
-      {
-        proof.wall.quotes.map((quote) => (
-          <li class="quote-card">
-            <p class="quote-text">{proof.placeholder}</p>
-            <p class="quote-name">{quote.name}</p>
-            <p class="quote-role">{quote.role}</p>
-          </li>
-        ))
-      }
-      {
-        proof.wall.quotes.map((quote) => (
-          <li class="quote-card" aria-hidden="true">
-            <p class="quote-text">{proof.placeholder}</p>
-            <p class="quote-name">{quote.name}</p>
-            <p class="quote-role">{quote.role}</p>
-          </li>
-        ))
-      }
-    </ul>
   </div>
 </section>
