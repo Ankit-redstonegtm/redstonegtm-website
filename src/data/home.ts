@@ -5,17 +5,17 @@ export const home = {
       'Ankit Singh helps sales-led vertical SaaS teams find companies with a reason to talk to them now, and turns that research into outbound worth replying to.',
     ogTitle: 'Fit tells you who could buy. Evidence tells you who has a reason to talk now.',
     ogDescription: 'Research-led outbound for sales-led vertical B2B SaaS, by Ankit Singh.',
-    imageAlt: 'Illustrative Northstar Retail evidence card. Redstone GTM.',
+    imageAlt: 'Example evidence card for Corvin Storeworks. Redstone GTM.',
   },
   hero: {
     eyebrow: 'For sales-led vertical B2B SaaS teams',
     title: 'Plenty of companies fit your market. Far fewer have a reason to talk to you now.',
     subhead:
-      'I find the companies dealing with the problem your product solves, show you the evidence, and turn it into outbound worth replying to. The goal is simple: more of the right sales conversations.',
+      'I find the companies dealing with the problem your product solves, **show you the evidence**, and turn it into outbound worth replying to. The goal is simple: more of the right sales conversations.',
     primary: "Let's talk about your market",
     secondary: 'See the difference ↓',
     microcopy: "You'll talk to me, not a sales team. Bring what you sell.",
-    stripLabel: 'Illustrative example. Northstar Retail is a fictional company.',
+    stripLabel: 'Example',
     stages: [
       {
         kicker: 'Your market',
@@ -23,7 +23,7 @@ export const home = {
       },
       {
         kicker: 'One has something going on',
-        detail: 'Northstar Retail',
+        detail: 'Corvin Storeworks',
       },
       {
         kicker: 'The evidence',
@@ -36,7 +36,7 @@ export const home = {
       {
         kicker: 'A reason to reach out',
         detail:
-          'Saw Northstar is expanding into the Southeast and hiring regional sales directors to run it…',
+          'Saw Corvin is expanding into the Southeast and hiring regional sales directors to run it…',
       },
       {
         kicker: 'The goal: a real conversation',
@@ -48,13 +48,12 @@ export const home = {
     eyebrow: 'The difference',
     title: 'Same industry. Same size. Same tools. Only one has a reason to reply.',
     subhead:
-      "Two companies can look identical in your database. One of them might be dealing with the exact problem your product solves this quarter. Pick an example and see what changes when you look for evidence instead of fit.",
+      "Two companies can look identical in your database. One of them might be dealing with the exact problem your product solves this quarter. Pick an example and see what changes when you look for **evidence instead of fit**.",
     panels: ['The usual filter', 'What research turns up', 'What you could actually say'] as const,
     filterLine: 'Every company here fits. Nothing here tells you who to call first.',
     whyLabel: 'Why it might matter',
     stillLabel: 'Still unconfirmed',
-    illustrative:
-      'Illustrative example. The companies and people are fictional. The kinds of evidence are real places to look.',
+    exampleLabel: 'Example',
     closing: 'Which list would you rather hand your team on Monday?',
     cta: "Let's talk about your market",
     microcopy: "Tell me what you sell. I'll tell you what I'd look for.",
@@ -64,7 +63,7 @@ export const home = {
         tab: 'Field sales software',
         sells: 'software that helps field sales teams plan routes, log visits and manage territories.',
         chips: ['Home services', '50–500 employees', 'United States'],
-        company: 'Brightline Home Services',
+        company: 'Cinderwell Roofing',
         companyNote: 'solar and roofing installer',
         findings: [
           {
@@ -85,8 +84,8 @@ export const home = {
         email: {
           subject: 'Phoenix and Tucson',
           paragraphs: [
-            'Hi Dana,',
-            'Saw Brightline opened Phoenix and Tucson and is hiring door-to-door managers for both.',
+            'Hi Sloane,',
+            'Saw Cinderwell opened Phoenix and Tucson and is hiring door-to-door managers for both.',
             'When a team adds cities this fast, the first thing that slips is usually knowing which rep covered which neighborhood, and when.',
             'Is that already handled, or still being figured out?',
           ],
@@ -97,7 +96,7 @@ export const home = {
         tab: 'Returns management',
         sells: 'software that helps ecommerce brands handle returns and exchanges.',
         chips: ['Ecommerce', '$20M+ revenue', 'Shopify'],
-        company: 'Fernway Outdoor',
+        company: 'Thornmere Supply',
         companyNote: 'outdoor apparel brand',
         findings: [
           { text: 'Launched a footwear line this spring', source: 'New collection pages' },
@@ -115,8 +114,8 @@ export const home = {
         email: {
           subject: 'footwear and the 30-day window',
           paragraphs: [
-            'Hi Priya,',
-            'Noticed Fernway added footwear this spring and moved returns from 60 to 30 days around the same time.',
+            'Hi Amira,',
+            'Noticed Thornmere added footwear this spring and moved returns from 60 to 30 days around the same time.',
             'When brands add a category where fit is hard to judge online, returns often grow faster than the process built to handle them.',
             'Was that part of the reason for the change?',
           ],
@@ -127,7 +126,7 @@ export const home = {
         tab: 'Retail analytics',
         sells: 'analytics software that helps grocers understand shoppers and store performance.',
         chips: ['Grocery chains', '20+ stores'],
-        company: 'Harbor Fresh Markets',
+        company: 'Sablebrook Markets',
         companyNote: '34-store regional grocer',
         findings: [
           {
@@ -142,8 +141,8 @@ export const home = {
         email: {
           subject: 'your new insights role',
           paragraphs: [
-            'Hi Marcus,',
-            'Saw Harbor Fresh relaunched its loyalty app and is hiring its first Director of Customer Insights.',
+            'Hi Mateo,',
+            'Saw Sablebrook relaunched its loyalty app and is hiring its first Director of Customer Insights.',
             "That usually means a lot of new shopper data, and pressure to show what it's worth. Five new stores make that question bigger, not smaller.",
             "Who's deciding how that data gets used across the stores?",
           ],
@@ -156,7 +155,7 @@ export const home = {
     title: "You probably don't need another tool. Your tools need something to look for.",
     paragraphs: [
       "You've got a CRM. Probably a contact database. Maybe an outbound platform too. They're good at telling you who fits. None of them know what makes someone need your product.",
-      'So the list stays broad. The message stays generic. And the replies are polite "not right now"s, or nothing at all. That\'s rarely a copywriting problem. It\'s a "why this company, why now" problem.',
+      'So the list stays broad. The message stays generic. And the replies are polite "not right now"s, or nothing at all. That\'s rarely a copywriting problem. It\'s a **"why this company, why now"** problem.',
     ],
     scenes: [
       {
@@ -183,10 +182,11 @@ export const home = {
     eyebrow: 'How it works',
     title: 'Start with why your customers buy. Then go find everyone else in that spot.',
     subhead:
-      'Before I look for a single company, I want to understand what makes someone need your product. Then I look for evidence of those situations across your market, find the right people, and build outbound around something worth talking about.',
+      'Before I look for a single company, I want to understand **what makes someone need your product**. Then I look for evidence of those situations across your market, find the right people, and build outbound around something worth talking about.',
     context:
-      'Following one illustrative account: you sell field sales software, and Northstar Retail (fictional) is an in-store merchandising company whose reps visit retail stores.',
-    accountLabel: 'On the Northstar account',
+      'Following one account: you sell field sales software, and Corvin Storeworks is an in-store merchandising company whose reps visit retail stores.',
+    accountName: 'Corvin Storeworks',
+    accountLabel: 'On the Corvin account',
     steps: [
       {
         title: 'Understand what makes someone buy',
@@ -198,7 +198,7 @@ export const home = {
         title: 'Find companies in that situation',
         body: 'Then I look for public evidence of that trigger across your market. Job posts, expansion news, new locations, leadership changes, industry directories, local filings. Wherever your buyers leave traces.',
         output:
-          'Northstar announced expansion into the Southeast last month. Four regional sales director roles are open.',
+          'Corvin announced expansion into the Southeast last month. Four regional sales director roles are open.',
       },
       {
         title: 'Find the people who matter',
@@ -212,8 +212,8 @@ export const home = {
         email: {
           subject: 'the Southeast expansion',
           paragraphs: [
-            'Hi Elena,',
-            'Saw Northstar is expanding into the Southeast and hiring regional sales directors to run it.',
+            'Hi Marisol,',
+            'Saw Corvin is expanding into the Southeast and hiring regional sales directors to run it.',
             "When reps spread across new states, managers usually lose sight of which stores got visited and which didn't.",
             'How are you planning to keep coverage visible while the new teams ramp?',
           ],
@@ -229,15 +229,24 @@ export const home = {
     ],
     closing:
       "AI makes the digging faster. It doesn't know what to dig for. Deciding that, and deciding what's worth saying, is judgment. That's most of the job.",
+    system: {
+      title: 'The conversations are the point. What builds up behind them is worth something too.',
+      items: [
+        'Your market, mapped and kept current. New companies get added as they show up.',
+        'Live signals, watched. When something changes at an account, you hear about it.',
+        'Your CRM, enriched with what the research found, not just names and emails.',
+      ],
+      closing: "It keeps working after the first campaign. That's what I mean by a system.",
+    },
   },
   proof: {
     eyebrow: 'The work',
     title: "You don't get a spreadsheet. You get reasons to reach out.",
     subhead:
-      'I spent about 2.5 years doing this work at The Kiln, with 20+ clients across different industries. The tools changed every few months. The question never did: why would this company care right now?',
+      'I spent about 2.5 years doing this work at The Kiln, with 20+ clients across different industries. The tools changed every few months. The question never did: **why would this company care right now?**',
     brief: {
-      title: 'Account brief · Northstar Retail',
-      label: 'Illustrative. The format I use, filled in with a fictional company.',
+      title: 'Account brief · Corvin Storeworks',
+      label: 'Example',
       whoLabel: 'Who they are',
       who: 'In-store merchandising company. Reps visit retail stores across the Midwest.',
       whyNowLabel: 'Why now',
@@ -293,7 +302,7 @@ export const home = {
     ],
     concept: {
       label: 'Concept. The real version is built around your market.',
-      prompt: 'Research Northstar Retail for our field sales app.',
+      prompt: 'Research Corvin Storeworks for our field sales app.',
       findingsLabel: 'Findings',
       findings: [
         { text: 'Announced expansion into the Southeast', source: 'Press release' },
@@ -327,7 +336,7 @@ export const home = {
     paragraphs: [
       'I spent about 2.5 years at The Kiln, a GTM agency, working with 20+ clients on how they find and reach new customers.',
       "Most of that time went into a few questions. Which companies are actually worth contacting? Where do you find them when they're not in the usual databases? What makes them relevant this month and not last year? And how do you turn that into a message a busy person answers?",
-      "Different industries, different products, same lesson. Finding more contacts is the easy part. Understanding why a company might need what you sell is the part that starts conversations.",
+      "Different industries, different products, same lesson. Finding more contacts is the easy part. **Understanding why a company might need what you sell** is the part that starts conversations.",
       "That's what Redstone GTM is built around.",
       'When you work with me, you work with me. I do the research, build the systems and write the messages myself. No account managers in between.',
       "If you're trying to reach more of the right companies, I'd like to hear what you're selling.",
@@ -399,7 +408,7 @@ export const home = {
     book: 'Book a call',
     email: 'ankit@redstonegtm.com',
     linkedin: 'LinkedIn',
-    note: 'Examples on this site are illustrative and use fictional companies. Recommendations are from LinkedIn and describe my work at The Kiln.',
+    note: 'Recommendations are from LinkedIn and describe my work at The Kiln.',
     copyright: '© 2026 Redstone GTM · Bangalore, India',
   },
 } as const;

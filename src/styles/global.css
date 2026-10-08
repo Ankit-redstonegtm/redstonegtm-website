@@ -30,6 +30,7 @@
 html {
   background: var(--paper);
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header) + 1.25rem);
 }
 
 body {
@@ -329,8 +330,8 @@ a {
 }
 
 .btn-small {
-  min-height: 40px;
-  padding: 0.5rem 0.9rem;
+  min-height: 44px;
+  padding: 0.5rem 0.95rem;
   font-size: 0.9rem;
 }
 
@@ -378,7 +379,7 @@ main {
 
 section[id],
 .example {
-  scroll-margin-top: calc(var(--header) + 0.75rem);
+  scroll-margin-top: calc(var(--header) + 1.75rem);
 }
 
 .section {
@@ -439,6 +440,12 @@ h4 {
   text-wrap: pretty;
 }
 
+.lede strong,
+.about-copy strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .section-head .lede + .lede {
   margin-top: 0.85rem;
 }
@@ -493,34 +500,48 @@ h4 {
 
 .stage-detail,
 .email-line {
+  padding: 0.75rem 0.8rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
   color: var(--ink);
 }
 
 .market-grid {
   display: grid;
-  gap: 0.32rem;
+  gap: 0.38rem;
   margin-bottom: 0.8rem;
-  opacity: 0.38;
+  opacity: 0.55;
   animation: fade-grid 1.05s ease both;
 }
 
 .market-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 0.7rem;
+}
+
+.market-row i,
+.market-row b {
   display: block;
-  height: 0.42rem;
+  height: 0.38rem;
   border-radius: 999px;
   background: var(--ink);
-  opacity: 0.45;
 }
 
-.market-row:nth-child(3n) {
-  width: 78%;
+.market-row i {
+  width: 62%;
+  opacity: 0.35;
 }
 
-.market-row:nth-child(2n) {
-  width: 90%;
+.market-row b {
+  width: 1.4rem;
+  opacity: 0.2;
 }
 
-.northstar-row {
+.picked-row {
   padding: 0.7rem 0.75rem;
   background: var(--paper);
   border: 1px solid var(--ink);
@@ -532,6 +553,12 @@ h4 {
 .stage-evidence {
   background: var(--paper);
   box-shadow: inset 3px 0 0 var(--burgundy);
+}
+
+.stage-evidence .evidence-list > li > span:first-child,
+.panel-research .finding-list > li > span:first-child {
+  color: var(--burgundy);
+  font-weight: 600;
 }
 
 .evidence-list,
@@ -576,15 +603,29 @@ h4 {
 }
 
 .strip figcaption,
-.illustrative,
 .account-brief figcaption,
 .about-photo figcaption {
   color: var(--stone);
   font-size: 0.875rem;
 }
 
-.strip figcaption {
+.ex-label {
+  display: inline-block;
+  margin: 0 0 0.45rem;
+  color: var(--stone);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.strip figcaption.ex-label {
+  display: block;
   margin-top: 0.75rem;
+}
+
+.context .ex-label {
+  display: block;
 }
 
 .example-tabs {
@@ -601,7 +642,11 @@ h4 {
 }
 
 .example-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: none;
+  min-height: 44px;
   scroll-snap-align: start;
   padding: 0.55rem 0.95rem;
   border-radius: 999px;
@@ -690,34 +735,41 @@ h4 {
   font-weight: 600;
 }
 
-.blur-list {
+.fit-rows {
   display: grid;
-  gap: 0.42rem;
+  gap: 0.45rem;
   margin-top: 0.95rem;
-  filter: blur(3px);
-  opacity: 0.75;
 }
 
-.blur-list li {
-  height: 0.62rem;
+.fit-rows li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  filter: blur(2.2px);
+  opacity: 0.8;
+}
+
+.fit-rows i,
+.fit-rows b {
+  display: block;
+  height: 0.45rem;
   border-radius: 999px;
   background: #cfc6b8;
 }
 
-.blur-list li:nth-child(2) {
-  width: 88%;
+.fit-rows i {
+  width: 58%;
 }
 
-.blur-list li:nth-child(3) {
-  width: 74%;
-}
-
-.blur-list li:nth-child(4) {
-  width: 61%;
+.fit-rows b {
+  width: 2.1rem;
+  height: 0.7rem;
 }
 
 .panel-research {
-  border-color: color-mix(in srgb, var(--burgundy) 28%, var(--line));
+  border-color: color-mix(in srgb, var(--burgundy) 45%, var(--line));
+  box-shadow: inset 3px 0 0 var(--burgundy);
 }
 
 .company-line {
@@ -776,10 +828,6 @@ h4 {
   border-right: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
   transform: translateX(-50%) rotate(45deg);
-}
-
-.illustrative {
-  margin-top: 0.85rem;
 }
 
 .section-close {
@@ -1031,6 +1079,125 @@ h4 {
   margin-top: 2.4rem;
 }
 
+.system-block {
+  margin-top: 3.25rem;
+  padding: 1.4rem 1.2rem 1.35rem;
+  background: var(--paper-alt);
+  border-radius: var(--radius);
+}
+
+.system-block h3 {
+  max-width: 20em;
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.system-grid {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: 1.25rem;
+}
+
+.system-grid > li {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.system-grid > li > p {
+  color: var(--stone);
+  font-size: 0.98rem;
+}
+
+.artifact {
+  display: grid;
+  gap: 0.38rem;
+  min-height: 7.5rem;
+  padding: 0.75rem 0.8rem 0.85rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.artifact-kicker {
+  margin-bottom: 0.15rem;
+  color: var(--stone);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.artifact > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 1.15rem;
+}
+
+.artifact > span i {
+  display: block;
+  width: 58%;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.artifact > span em {
+  color: var(--stone);
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.artifact .is-new em {
+  color: var(--burgundy);
+}
+
+.artifact .is-new i {
+  background: color-mix(in srgb, var(--burgundy) 40%, var(--paper));
+}
+
+.artifact-account {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.artifact-alert {
+  color: var(--burgundy);
+  font-weight: 600;
+}
+
+.artifact-crm p {
+  display: grid;
+  gap: 0.05rem;
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.artifact-crm p span {
+  color: var(--stone);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.crm-why {
+  color: var(--burgundy);
+  font-weight: 600;
+}
+
+.system-close {
+  max-width: 34rem;
+  margin-top: 1.15rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .account-brief {
   margin-top: 2.6rem;
 }
@@ -1042,11 +1209,15 @@ h4 {
   border-radius: var(--radius);
 }
 
-.doc-head p {
+.doc-head p:not(.ex-label) {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: -0.03em;
+}
+
+.doc-head .ex-label {
+  margin-bottom: 0.4rem;
 }
 
 .doc-label {
@@ -1308,32 +1479,61 @@ h4 {
   border-radius: var(--radius);
 }
 
-.rec p::before {
+.rec-who {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0 0 0.9rem;
+}
+
+.rec-name {
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.rec-role {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.rec-tag {
+  margin-top: 0.2rem;
+  color: var(--stone);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.rec-quote::before {
   content: "\201C";
   margin-right: 0.12rem;
   color: var(--burgundy);
   font-weight: 700;
 }
 
-.rec footer {
-  margin-top: 1rem;
+.rec-quote {
   color: var(--stone);
-  font-size: 0.95rem;
-}
-
-.rec-tag {
-  font-weight: 600;
-  color: var(--ink);
 }
 
 .rec-featured {
   margin-top: 1.4rem;
-  padding: 1.6rem 1.35rem 1.4rem;
+  padding: 1.6rem 1.4rem 1.45rem;
 }
 
-.rec-featured p {
+.rec-featured .rec-name {
+  font-size: clamp(1.7rem, 2.4vw, 2.05rem);
+}
+
+.rec-featured .rec-role {
+  font-size: 1.08rem;
+}
+
+.rec-featured .rec-quote {
   color: var(--ink);
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-size: clamp(1.12rem, 1.8vw, 1.32rem);
   line-height: 1.45;
   letter-spacing: -0.02em;
 }
@@ -1356,6 +1556,14 @@ h4 {
 
 .recs-link {
   margin-top: 1.25rem;
+}
+
+.recs-link .text-link,
+.band-links a,
+.footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .site-footer {
@@ -1686,7 +1894,7 @@ h4 {
     opacity: 1;
   }
   to {
-    opacity: 0.38;
+    opacity: 0.55;
   }
 }
 
@@ -1732,9 +1940,15 @@ h4 {
 }
 
 @media (min-width: 860px) {
-  .mode-grid {
+  .mode-grid,
+  .system-grid {
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
+  }
+
+  .system-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
   }
 }
 

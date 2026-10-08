@@ -1,5 +1,6 @@
 ---
 import Button from '../Button.astro';
+import Em from '../Em.astro';
 import { home } from '../../data/home';
 import { site } from '../../data/site';
 
@@ -12,7 +13,7 @@ const [filterTitle, researchTitle, sayTitle] = difference.panels;
     <div class="section-head">
       <p class="eyebrow">{difference.eyebrow}</p>
       <h2 id="examples-title">{difference.title}</h2>
-      <p class="lede">{difference.subhead}</p>
+      <p class="lede"><Em text={difference.subhead} /></p>
     </div>
 
     <div class="switcher">
@@ -29,6 +30,7 @@ const [filterTitle, researchTitle, sayTitle] = difference.panels;
       {
         difference.examples.map((example, index) => (
           <div class:list={['example', index === 0 && 'example-first']} id={example.id}>
+            <p class="ex-label">{difference.exampleLabel}</p>
             <p class="sells">
               <span>If you sell: </span>
               {example.sells}
@@ -42,11 +44,11 @@ const [filterTitle, researchTitle, sayTitle] = difference.panels;
                   ))}
                 </ul>
                 <p>{difference.filterLine}</p>
-                <ul class="blur-list" aria-hidden="true">
-                  <li />
-                  <li />
-                  <li />
-                  <li />
+                <ul class="fit-rows" aria-hidden="true">
+                  <li><i /><b /></li>
+                  <li><i /><b /></li>
+                  <li><i /><b /></li>
+                  <li><i /><b /></li>
                 </ul>
               </div>
               <span class="flow-arrow" aria-hidden="true" />
@@ -84,7 +86,6 @@ const [filterTitle, researchTitle, sayTitle] = difference.panels;
                 </div>
               </div>
             </div>
-            <p class="illustrative">{difference.illustrative}</p>
           </div>
         ))
       }

@@ -1,4 +1,5 @@
 ---
+import Em from '../Em.astro';
 import { home } from '../../data/home';
 
 const { method } = home;
@@ -9,9 +10,9 @@ const { method } = home;
     <div class="section-head">
       <p class="eyebrow">{method.eyebrow}</p>
       <h2 id="method-title">{method.title}</h2>
-      <p class="lede">{method.subhead}</p>
+      <p class="lede"><Em text={method.subhead} /></p>
     </div>
-    <p class="context">{method.context}</p>
+    <p class="context"><span class="ex-label">Example</span> {method.context}</p>
 
     <div class="method">
       <ol class="method-steps">
@@ -45,7 +46,7 @@ const { method } = home;
       <aside class="pin" aria-hidden="true">
         <div class="live-card">
           <div class="live-top">
-            <p>Northstar Retail</p>
+            <p>{method.accountName}</p>
             <ol class="dots">
               {method.steps.map((_, index) => (
                 <li data-dot={index + 1}>{index + 1}</li>
@@ -75,6 +76,39 @@ const { method } = home;
     </div>
 
     <p class="close-line method-close">{method.closing}</p>
+
+    <div class="system-block">
+      <h3>{method.system.title}</h3>
+      <ul class="system-grid">
+        <li>
+          <div class="artifact" aria-hidden="true">
+            <p class="artifact-kicker">Accounts</p>
+            <span><i /><em>Fit</em></span>
+            <span><i /><em>Fit</em></span>
+            <span class="is-new"><i /><em>New</em></span>
+          </div>
+          <p>{method.system.items[0]}</p>
+        </li>
+        <li>
+          <div class="artifact artifact-signal" aria-hidden="true">
+            <p class="artifact-kicker">Signal</p>
+            <p class="artifact-account">{method.accountName}</p>
+            <p class="artifact-alert">Expansion announced</p>
+          </div>
+          <p>{method.system.items[1]}</p>
+        </li>
+        <li>
+          <div class="artifact artifact-crm" aria-hidden="true">
+            <p class="artifact-kicker">CRM</p>
+            <p><span>Account</span> {method.accountName}</p>
+            <p><span>Email</span> Marisol, VP of Field Sales</p>
+            <p class="crm-why"><span>Why now</span> Expansion into the Southeast</p>
+          </div>
+          <p>{method.system.items[2]}</p>
+        </li>
+      </ul>
+      <p class="system-close">{method.system.closing}</p>
+    </div>
   </div>
 </section>
 

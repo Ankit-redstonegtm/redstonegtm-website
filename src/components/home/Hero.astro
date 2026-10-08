@@ -1,5 +1,6 @@
 ---
 import Button from '../Button.astro';
+import Em from '../Em.astro';
 import { home } from '../../data/home';
 import { site } from '../../data/site';
 
@@ -11,7 +12,7 @@ const [market, one, evidence, email, goal] = hero.stages;
   <div class="wrap hero-copy">
     <p class="eyebrow">{hero.eyebrow}</p>
     <h1 id="hero-title">{hero.title}</h1>
-    <p class="lede">{hero.subhead}</p>
+    <p class="lede"><Em text={hero.subhead} /></p>
     <div class="hero-actions">
       <Button href={site.bookingUrl} label={hero.primary} />
       <a class="btn btn-quiet" href="#examples">{hero.secondary}</a>
@@ -25,13 +26,20 @@ const [market, one, evidence, email, goal] = hero.stages;
         <li class="stage stage-market">
           <p class="stage-kicker">{market.kicker}</p>
           <div class="market-grid" aria-hidden="true">
-            {Array.from({ length: 8 }, () => <span class="market-row" />)}
+            {
+              Array.from({ length: 6 }, () => (
+                <span class="market-row">
+                  <i />
+                  <b />
+                </span>
+              ))
+            }
           </div>
           <p class="stage-detail">{market.detail}</p>
         </li>
         <li class="stage stage-one">
           <p class="stage-kicker">{one.kicker}</p>
-          <p class="northstar-row">{one.detail}</p>
+          <p class="picked-row">{one.detail}</p>
         </li>
         <li class="stage stage-evidence">
           <p class="stage-kicker">{evidence.kicker}</p>
@@ -56,7 +64,7 @@ const [market, one, evidence, email, goal] = hero.stages;
           <p class="reply">{goal.reply}</p>
         </li>
       </ol>
-      <figcaption>{hero.stripLabel}</figcaption>
+      <figcaption class="ex-label">{hero.stripLabel}</figcaption>
     </figure>
   </div>
 </section>

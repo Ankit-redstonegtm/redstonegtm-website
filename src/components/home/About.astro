@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import founder from '../../assets/founder.png';
+import Em from '../Em.astro';
 import { home } from '../../data/home';
 import { site } from '../../data/site';
 
@@ -33,7 +34,11 @@ const rest = about.recommendations.filter((item) => !item.featured);
       <div class="about-copy">
         <p class="eyebrow">{about.eyebrow}</p>
         <h2 id="about-title">{about.title}</h2>
-        {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        {about.paragraphs.map((paragraph) => (
+          <p>
+            <Em text={paragraph} />
+          </p>
+        ))}
       </div>
     </div>
 
@@ -43,12 +48,12 @@ const rest = about.recommendations.filter((item) => !item.featured);
       {
         featured && (
           <blockquote class="rec rec-featured">
-            <p>{featured.quote}</p>
-            <footer>
-              <strong>{featured.name}</strong>
-              <span> · {featured.title} · </span>
-              <span class="rec-tag">{featured.tag}</span>
+            <footer class="rec-who">
+              <p class="rec-name">{featured.name}</p>
+              <p class="rec-role">{featured.title}</p>
+              <p class="rec-tag">{featured.tag}</p>
             </footer>
+            <p class="rec-quote">{featured.quote}</p>
           </blockquote>
         )
       }
@@ -56,12 +61,12 @@ const rest = about.recommendations.filter((item) => !item.featured);
         {
           rest.map((item) => (
             <blockquote class="rec">
-              <p>{item.quote}</p>
-              <footer>
-                <strong>{item.name}</strong>
-                <span> · {item.title} · </span>
-                <span class="rec-tag">{item.tag}</span>
+              <footer class="rec-who">
+                <p class="rec-name">{item.name}</p>
+                <p class="rec-role">{item.title}</p>
+                <p class="rec-tag">{item.tag}</p>
               </footer>
+              <p class="rec-quote">{item.quote}</p>
             </blockquote>
           ))
         }

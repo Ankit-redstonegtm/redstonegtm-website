@@ -1,5 +1,6 @@
 ---
 import Button from '../Button.astro';
+import Em from '../Em.astro';
 import { home } from '../../data/home';
 import { site } from '../../data/site';
 
@@ -12,15 +13,15 @@ const [done, built] = proof.modes;
     <div class="section-head">
       <p class="eyebrow">{proof.eyebrow}</p>
       <h2 id="proof-title">{proof.title}</h2>
-      <p class="lede">{proof.subhead}</p>
+      <p class="lede"><Em text={proof.subhead} /></p>
     </div>
 
     <figure class="account-brief">
       <div class="doc">
         <header class="doc-head">
+          <p class="ex-label">{proof.brief.label}</p>
           <p>{proof.brief.title}</p>
         </header>
-        <p class="doc-label">{proof.brief.label}</p>
         <dl>
           <div>
             <dt>{proof.brief.whoLabel}</dt>
