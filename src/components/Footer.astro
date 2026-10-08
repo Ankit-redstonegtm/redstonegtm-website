@@ -12,14 +12,14 @@ const { footer } = home;
       <p class="footer-blurb">{footer.line}</p>
     </div>
     <nav class="footer-nav" aria-label="Footer">
-      <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
+      <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="Book call click" data-track-location="footer">
         {footer.book}<span class="sr-only"> (opens in a new tab)</span>
       </a>
-      <a href={`mailto:${site.email}`}>{footer.email}</a>
-      <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
+      <a href={`mailto:${site.email}`} data-track="Email click">{footer.email}</a>
+      <a href={site.linkedin} target="_blank" rel="noopener noreferrer" data-track="Social click" data-track-platform="linkedin">
         {footer.linkedin}<span class="sr-only"> (opens in a new tab)</span>
       </a>
-      <a href={site.youtube} target="_blank" rel="noopener noreferrer">
+      <a href={site.youtube} target="_blank" rel="noopener noreferrer" data-track="Social click" data-track-platform="youtube">
         {footer.youtube}<span class="sr-only"> (opens in a new tab)</span>
       </a>
       <a href={site.substack} target="_blank" rel="noopener noreferrer">

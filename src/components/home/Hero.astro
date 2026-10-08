@@ -14,7 +14,7 @@ const messageWords = (email.detail ?? '').split(' ');
     <h1 id="hero-title">{hero.title}</h1>
     <p class="lede">{hero.subhead}</p>
     <div class="hero-actions">
-      <Button href={site.bookingUrl} label={hero.primary} />
+      <Button href={site.bookingUrl} label={hero.primary} track="Book call click" trackLocation="hero" />
       <a class="btn btn-quiet" href="#examples">{hero.secondary}</a>
     </div>
   </div>

@@ -11,10 +11,10 @@ const { finalCta } = home;
     <h2 id="final-title">{finalCta.title}</h2>
     <p class="lede">{finalCta.line}</p>
     <div class="hero-actions">
-      <Button href={site.bookingUrl} label={finalCta.primary} variant="inverse" />
+      <Button href={site.bookingUrl} label={finalCta.primary} variant="inverse" track="Book call click" trackLocation="final" />
     </div>
     <p class="band-links">
-      <a href={`mailto:${site.email}`}>{finalCta.emailLabel}</a>
+      <a href={`mailto:${site.email}`} data-track="Email click">{finalCta.emailLabel}</a>
       <span aria-hidden="true"> · </span>
       <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
         {finalCta.linkedinLabel}<span class="sr-only"> (opens in a new tab)</span>

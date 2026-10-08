@@ -72,14 +72,28 @@ const cards = [
           <p>{card.line}</p>
           {card.featured && (
             <p class="follow-latest">
-              <a href={site.substackLatest.url} target="_blank" rel="noopener noreferrer">
+              <a
+                href={site.substackLatest.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="Social click"
+                data-track-platform="substack-issue"
+              >
                 {follow.latestLabel}: {site.substackLatest.title} →
                 <span class="sr-only"> (opens in a new tab)</span>
               </a>
             </p>
           )}
         </div>
-        <a class:list={['btn', !card.featured && 'btn-quiet']} href={card.href} target="_blank" rel="noopener noreferrer">
+        <a
+          class:list={['btn', !card.featured && 'btn-quiet']}
+          href={card.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track={card.id === 'substack' ? 'Subscribe click' : 'Social click'}
+          data-track-location={card.id === 'substack' ? 'follow-card' : undefined}
+          data-track-platform={card.id === 'substack' ? undefined : card.id}
+        >
           {card.button}
           <span class="sr-only"> (opens in a new tab)</span>
         </a>
