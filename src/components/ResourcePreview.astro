@@ -1,0 +1,65 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<div class="artifact asset-preview" aria-hidden="true">
+  {
+    id === 'vertical-saas-market-map' && (
+      <>
+        <p class="artifact-kicker">Market list</p>
+        <p class="filter-row">
+          <span>Industry</span>
+          <span class="is-cut">Anyone</span>
+          <span class="is-cut">Every title</span>
+        </p>
+        <span><i /><em>Kept</em></span>
+        <span class="is-cut"><i /><em>Cut</em></span>
+        <span class="is-new"><i /><em>Kept</em></span>
+      </>
+    )
+  }
+  {
+    id === 'account-scoring-sheet' && (
+      <>
+        <p class="artifact-kicker">This week</p>
+        <p class="score-row"><span>Fit · now</span><b>8</b></p>
+        <p class="score-row"><span>Fit · later</span><b>5</b></p>
+        <p class="score-row is-wait"><span>Fit · wait</span><b>2</b></p>
+      </>
+    )
+  }
+  {
+    id === 'signal-to-message-openers' && (
+      <>
+        <p class="artifact-kicker">Signal</p>
+        <p class="artifact-account">New office</p>
+        <p class="opener-line"><span>Opener</span> Saw the new office.</p>
+      </>
+    )
+  }
+</div>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const previews = document.querySelectorAll('.asset-preview');
+  if (!reduce && previews.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-in');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.5 },
+    );
+    previews.forEach((preview) => {
+      preview.classList.add('will-play');
+      observer.observe(preview);
+    });
+  }
+</script>

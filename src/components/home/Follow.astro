@@ -1,0 +1,16 @@
+---
+import FollowCards from '../FollowCards.astro';
+import { home } from '../../data/home';
+
+const { follow } = home;
+---
+
+<section class="section follow" id="follow" aria-labelledby="follow-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="follow-title">{follow.title}</h2>
+      <p class="lede">{follow.sub}</p>
+    </div>
+    <FollowCards />
+  </div>
+</section>

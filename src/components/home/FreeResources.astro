@@ -1,0 +1,23 @@
+---
+import ResourceCard from '../ResourceCard.astro';
+import { home } from '../../data/home';
+import { getResources } from '../../lib/resources';
+
+const { resources: copy } = home;
+const resources = await getResources();
+---
+
+<section class="section band resources-home" id="resources-home" aria-labelledby="resources-home-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="resources-home-title">{copy.title}</h2>
+      <p class="lede">{copy.sub}</p>
+    </div>
+    <div class="resource-grid">
+      {resources.map((entry) => <ResourceCard entry={entry} />)}
+    </div>
+    <p class="resources-all">
+      <a class="text-link" href="/resources">{copy.all}</a>
+    </p>
+  </div>
+</section>

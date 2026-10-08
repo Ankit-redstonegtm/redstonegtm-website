@@ -1,0 +1,36 @@
+---
+import ResourcePreview from './ResourcePreview.astro';
+import { home } from '../data/home';
+import { site } from '../data/site';
+import type { ResourceEntry } from '../lib/resources';
+
+interface Props {
+  entry: ResourceEntry;
+  level?: 2 | 3;
+}
+
+const { entry, level = 3 } = Astro.props;
+const { resources } = home;
+const { title, description, format, status } = entry.data;
+---
+
+<article class="resource-card">
+  <ResourcePreview id={entry.id} />
+  {status === 'coming-soon' && <p class="soon-pill">{resources.soon}</p>}
+  {format && <p class="format-label">{format}</p>}
+  {
+    level === 2 ? (
+      <h2>
+        <a href={`/resources/${entry.id}`}>{title}</a>
+      </h2>
+    ) : (
+      <h3>
+        <a href={`/resources/${entry.id}`}>{title}</a>
+      </h3>
+    )
+  }
+  <p>{description}</p>
+  <a class="btn" href={site.subscribeUrl} target="_blank" rel="noopener noreferrer">
+    {resources.cta}<span class="sr-only"> (opens in a new tab)</span>
+  </a>
+</article>

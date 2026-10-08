@@ -20,10 +20,22 @@ export const site = {
   locale: 'en_US',
   email: 'ankit@redstonegtm.com',
   linkedin: 'https://www.linkedin.com/in/ankit-gtm/',
+  youtube: 'https://www.youtube.com/@AnkitSinghGTM',
+  substack: 'https://theinsiderplays.substack.com',
+  subscribeUrl: 'https://theinsiderplays.substack.com/subscribe',
+  substackEmbed: 'https://theinsiderplays.substack.com/embed',
+  substackLatest: {
+    title: "Your competitor's followers already know the category",
+    url: 'https://theinsiderplays.substack.com/p/your-competitors-followers-already',
+  },
   founder: {
     name: 'Ankit Singh',
     jobTitle: 'Founder',
-    sameAs: ['https://www.linkedin.com/in/ankit-gtm/'],
+    sameAs: [
+      'https://www.linkedin.com/in/ankit-gtm/',
+      'https://www.youtube.com/@AnkitSinghGTM',
+      'https://theinsiderplays.substack.com',
+    ],
   },
 } as const;
 
@@ -35,6 +47,7 @@ export const nav = [
   { label: 'Examples', href: '/#examples' },
   { label: 'How it works', href: '/#how-it-works' },
   { label: 'About', href: '/#about' },
+  { label: 'Resources', href: '/resources' },
 ] as const;
 
 export const resourceTypeLabel = {
@@ -42,6 +55,8 @@ export const resourceTypeLabel = {
   video: 'Video',
   'case-study': 'Case study',
   link: 'Link',
+  guide: 'Guide',
+  template: 'Template',
 } as const;
 
 export type ResourceType = keyof typeof resourceTypeLabel;
