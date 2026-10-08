@@ -1,34 +1,33 @@
 ---
 import Button from '../Button.astro';
-import Em from '../Em.astro';
 import { home } from '../../data/home';
 import { site } from '../../data/site';
 
 const { hero } = home;
 const [market, one, evidence, email, goal] = hero.stages;
+const messageWords = (email.detail ?? '').split(' ');
 ---
 
 <section class="section hero" aria-labelledby="hero-title">
   <div class="wrap hero-copy">
     <p class="eyebrow">{hero.eyebrow}</p>
     <h1 id="hero-title">{hero.title}</h1>
-    <p class="lede"><Em text={hero.subhead} /></p>
+    <p class="lede">{hero.subhead}</p>
     <div class="hero-actions">
       <Button href={site.bookingUrl} label={hero.primary} />
       <a class="btn btn-quiet" href="#examples">{hero.secondary}</a>
     </div>
-    <p class="micro">{hero.microcopy}</p>
   </div>
 
   <div class="wrap">
-    <figure class="strip">
+    <figure class="strip" tabindex="0">
       <ol class="strip-stages">
         <li class="stage stage-market">
           <p class="stage-kicker">{market.kicker}</p>
           <div class="market-grid" aria-hidden="true">
             {
-              Array.from({ length: 6 }, () => (
-                <span class="market-row">
+              Array.from({ length: 6 }, (_, index) => (
+                <span class:list={['market-row', index === 4 && 'is-chosen']}>
                   <i />
                   <b />
                 </span>
@@ -53,18 +52,45 @@ const [market, one, evidence, email, goal] = hero.stages;
               ))
             }
           </ul>
-          <p class="why-line"><span>Why it might matter: </span>{evidence.why}</p>
+          <p class="why-line">{evidence.why}</p>
         </li>
         <li class="stage stage-email">
           <p class="stage-kicker">{email.kicker}</p>
-          <p class="email-line">{email.detail}</p>
+          <p class="email-line">
+            {
+              messageWords.map((word, index) => (
+                <span class="tw" style={`--i:${index}`}>
+                  {word}
+                  {index < messageWords.length - 1 ? ' ' : ''}
+                </span>
+              ))
+            }
+          </p>
         </li>
         <li class="stage stage-reply">
           <p class="stage-kicker">{goal.kicker}</p>
           <p class="reply">{goal.reply}</p>
         </li>
       </ol>
-      <figcaption class="ex-label">{hero.stripLabel}</figcaption>
     </figure>
   </div>
 </section>
+
+<script>
+  const strip = document.querySelector('.strip');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (strip instanceof HTMLElement && !reduce) {
+    function replay() {
+      const nodes = [strip, ...strip.querySelectorAll('*')];
+      nodes.forEach((node) => {
+        node.getAnimations().forEach((anim) => {
+          anim.cancel();
+          anim.play();
+        });
+      });
+    }
+
+    strip.addEventListener('mouseenter', replay);
+    strip.addEventListener('focusin', replay);
+  }
+</script>

@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import founder from '../../assets/founder.png';
-import Em from '../Em.astro';
 import { home } from '../../data/home';
 import { site } from '../../data/site';
 
@@ -29,15 +28,11 @@ const rest = about.recommendations.filter((item) => !item.featured);
         <ul class="facts">
           {about.facts.map((fact) => <li>{fact}</li>)}
         </ul>
-        <figcaption>{about.factsNote}</figcaption>
       </figure>
       <div class="about-copy">
-        <p class="eyebrow">{about.eyebrow}</p>
         <h2 id="about-title">{about.title}</h2>
         {about.paragraphs.map((paragraph) => (
-          <p>
-            <Em text={paragraph} />
-          </p>
+          <p>{paragraph}</p>
         ))}
       </div>
     </div>

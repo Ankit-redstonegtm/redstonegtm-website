@@ -1,8 +1,5 @@
 ---
-import Button from '../Button.astro';
-import Em from '../Em.astro';
 import { home } from '../../data/home';
-import { site } from '../../data/site';
 
 const { proof } = home;
 const [done, built] = proof.modes;
@@ -11,15 +8,12 @@ const [done, built] = proof.modes;
 <section class="section proof" aria-labelledby="proof-title">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">{proof.eyebrow}</p>
       <h2 id="proof-title">{proof.title}</h2>
-      <p class="lede"><Em text={proof.subhead} /></p>
     </div>
 
     <figure class="account-brief">
       <div class="doc">
         <header class="doc-head">
-          <p class="ex-label">{proof.brief.label}</p>
           <p>{proof.brief.title}</p>
         </header>
         <dl>
@@ -60,7 +54,6 @@ const [done, built] = proof.modes;
           {proof.brief.confidence}
         </p>
       </div>
-      <figcaption>{proof.brief.caption}</figcaption>
     </figure>
 
     <h3 class="modes-title">{proof.modesTitle}</h3>
@@ -69,23 +62,16 @@ const [done, built] = proof.modes;
         <h3>{done.title}</h3>
         <p class="mode-line">{done.line}</p>
         <p><strong>{done.forLabel}: </strong>{done.for}</p>
-        <p class="list-label">{done.listLabel}</p>
-        <ul class="plain-list">
-          {done.items.map((item) => <li>{item}</li>)}
-        </ul>
+        <p><strong>{done.listLabel}: </strong>{done.items.join(' · ')}</p>
         <p><strong>{done.youLabel}: </strong>{done.you}</p>
       </article>
       <article class="mode-card">
         <h3>{built.title}</h3>
         <p class="mode-line">{built.line}</p>
         <p><strong>{built.forLabel}: </strong>{built.for}</p>
-        <p class="list-label">{built.listLabel}</p>
-        <ul class="plain-list">
-          {built.items.map((item) => <li>{item}</li>)}
-        </ul>
+        <p><strong>{built.listLabel}: </strong>{built.items.join(' · ')}</p>
         <p><strong>{built.youLabel}: </strong>{built.you}</p>
         <div class="concept">
-          <p class="concept-label">{proof.concept.label}</p>
           <div class="chat" aria-label={proof.concept.prompt}>
             <p class="chat-ask">{proof.concept.prompt}</p>
             <div class="chat-answer">
@@ -119,7 +105,6 @@ const [done, built] = proof.modes;
         </div>
       </article>
     </div>
-    <p class="micro modes-note">{proof.modesNote}</p>
 
     <div class="fit">
       <h3>{proof.fitTitle}</h3>
@@ -137,10 +122,6 @@ const [done, built] = proof.modes;
           </ul>
         </div>
       </div>
-    </div>
-
-    <div class="section-close">
-      <Button href={site.bookingUrl} label={proof.cta} />
     </div>
   </div>
 </section>

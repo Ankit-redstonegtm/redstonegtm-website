@@ -5,58 +5,51 @@ export const home = {
       'Ankit Singh helps sales-led vertical SaaS teams find companies with a reason to talk to them now, and turns that research into outbound worth replying to.',
     ogTitle: 'Fit tells you who could buy. Evidence tells you who has a reason to talk now.',
     ogDescription: 'Research-led outbound for sales-led vertical B2B SaaS, by Ankit Singh.',
-    imageAlt: 'Example evidence card for Corvin Storeworks. Redstone GTM.',
+    imageAlt: 'Evidence card for Corvin Storeworks. Redstone GTM.',
   },
   hero: {
     eyebrow: 'For sales-led vertical B2B SaaS teams',
     title: 'Plenty of companies fit your market. Far fewer have a reason to talk to you now.',
     subhead:
-      'I find the companies dealing with the problem your product solves, **show you the evidence**, and turn it into outbound worth replying to. The goal is simple: more of the right sales conversations.',
-    primary: "Let's talk about your market",
-    secondary: 'See the difference ↓',
-    microcopy: "You'll talk to me, not a sales team. Bring what you sell.",
-    stripLabel: 'Example',
+      'I find the companies that have the problem your product solves, and turn what I find into outbound they reply to.',
+    primary: 'Find your next customers',
+    secondary: 'See an example ↓',
     stages: [
       {
         kicker: 'Your market',
         detail: 'Hundreds of companies that fit',
       },
       {
-        kicker: 'One has something going on',
+        kicker: 'One stands out',
         detail: 'Corvin Storeworks',
       },
       {
-        kicker: 'The evidence',
+        kicker: "What's happening",
         findings: [
           { text: 'Announced expansion into the Southeast', source: 'Press release' },
           { text: 'Hiring 4 regional sales directors', source: 'Careers page' },
         ],
-        why: 'More reps in more places usually makes coverage harder to manage.',
+        why: 'More reps in more places. Coverage gets harder to manage.',
       },
       {
-        kicker: 'A reason to reach out',
+        kicker: 'Your message',
         detail:
           'Saw Corvin is expanding into the Southeast and hiring regional sales directors to run it…',
       },
       {
-        kicker: 'The goal: a real conversation',
+        kicker: 'Their reply',
         reply: 'Funny timing. We were just talking about this.',
       },
     ],
   },
   difference: {
-    eyebrow: 'The difference',
-    title: 'Same industry. Same size. Same tools. Only one has a reason to reply.',
-    subhead:
-      "Two companies can look identical in your database. One of them might be dealing with the exact problem your product solves this quarter. Pick an example and see what changes when you look for **evidence instead of fit**.",
-    panels: ['The usual filter', 'What research turns up', 'What you could actually say'] as const,
-    filterLine: 'Every company here fits. Nothing here tells you who to call first.',
+    title: 'Two companies can look the same on your list. Only one needs you right now.',
+    panels: ['What your list shows', 'What I find', 'What you send'] as const,
+    filterLine: 'Everyone fits. No one stands out.',
     whyLabel: 'Why it might matter',
-    stillLabel: 'Still unconfirmed',
-    exampleLabel: 'Example',
+    stillLabel: 'Not confirmed',
     closing: 'Which list would you rather hand your team on Monday?',
-    cta: "Let's talk about your market",
-    microcopy: "Tell me what you sell. I'll tell you what I'd look for.",
+    cta: "See who you're missing",
     examples: [
       {
         id: 'field-sales-software',
@@ -80,7 +73,7 @@ export const home = {
           },
         ],
         why: 'New territories plus new managers is when routing, coverage and visibility tend to get messy.',
-        still: 'whether they already have a tool for this. The message asks instead of assuming.',
+        still: 'whether they already have a tool. So the email asks.',
         email: {
           subject: 'Phoenix and Tucson',
           paragraphs: [
@@ -110,7 +103,7 @@ export const home = {
           },
         ],
         why: 'A category where sizing drives returns, a tighter policy and a new returns hire, all in one season. That can point to returns getting expensive.',
-        still: "it might be routine housekeeping. The message asks; it doesn't diagnose.",
+        still: "whether it's routine housekeeping. So the email asks.",
         email: {
           subject: 'footwear and the 30-day window',
           paragraphs: [
@@ -137,7 +130,7 @@ export const home = {
           { text: 'Hiring its first Director of Customer Insights', source: 'Careers page' },
         ],
         why: "A loyalty relaunch and a brand-new insights role suggest they're collecting more shopper data and want to do more with it.",
-        still: "whether they have the tools for that yet. That's the question worth asking.",
+        still: 'whether they have the tools yet. So the email asks.',
         email: {
           subject: 'your new insights role',
           paragraphs: [
@@ -151,64 +144,44 @@ export const home = {
     ],
   },
   problem: {
-    eyebrow: 'Why outbound stalls',
-    title: "You probably don't need another tool. Your tools need something to look for.",
-    paragraphs: [
-      "You've got a CRM. Probably a contact database. Maybe an outbound platform too. They're good at telling you who fits. None of them know what makes someone need your product.",
-      'So the list stays broad. The message stays generic. And the replies are polite "not right now"s, or nothing at all. That\'s rarely a copywriting problem. It\'s a **"why this company, why now"** problem.',
+    title: "Your tools know who fits. They don't know who needs you.",
+    body: "Your CRM and data tools sort by size, industry and title. None of them know what makes a company need your product. So the list stays broad, the message stays generic, and the replies don't come.",
+    lines: [
+      "Outbound runs every day. Replies don't.",
+      "You've already contacted every account you can name.",
+      'More pipeline seems to need more SDRs.',
+      "You're entering a new market and the old playbook doesn't fit.",
     ],
-    scenes: [
-      {
-        title: "Outbound is running. Conversations aren't.",
-        body: 'The team is busy and the emails go out every day. Most replies are "not a priority" or an unsubscribe. The activity is fine. The reason to talk isn\'t there.',
-      },
-      {
-        title: "You've worked through the obvious accounts.",
-        body: "Every company your team can name has heard from you twice. The ones you haven't found yet don't show up under the filters you've been using.",
-      },
-      {
-        title: 'More pipeline seems to mean more hires.',
-        body: 'Your best rep researches properly, so they can only get through a handful of accounts a day. Everything else gets the template. Three more SDRs means three more people doing the same thing.',
-      },
-      {
-        title: "You're moving into a new market.",
-        body: 'Your targeting and messaging were built for one kind of customer. A new vertical has different triggers, different titles and different words for the same problem.',
-      },
-    ],
-    closing:
-      'Four different situations. One missing piece: knowing which companies have a reason to talk to you, and what that reason is.',
+    closing: 'All four come back to one gap: knowing who has a reason to talk to you, and why.',
   },
   method: {
-    eyebrow: 'How it works',
-    title: 'Start with why your customers buy. Then go find everyone else in that spot.',
-    subhead:
-      'Before I look for a single company, I want to understand **what makes someone need your product**. Then I look for evidence of those situations across your market, find the right people, and build outbound around something worth talking about.',
+    title: 'Start with why your customers buy. Then find more companies like that.',
     context:
-      'Following one account: you sell field sales software, and Corvin Storeworks is an in-store merchandising company whose reps visit retail stores.',
+      'Follow one account. You sell field sales software. Corvin Storeworks sends reps into retail stores.',
     accountName: 'Corvin Storeworks',
     accountLabel: 'On the Corvin account',
     steps: [
       {
-        title: 'Understand what makes someone buy',
-        body: "I dig into your product, your best customers and the deals you've won. What was going on at those companies when they said yes? What made it urgent?",
+        title: 'Understand why they buy',
+        body: 'What was happening at your best customers when they said yes?',
         output:
           'Your best customers bought when they added territories faster than their managers could keep track of reps. The trigger was growth, not company size.',
       },
       {
         title: 'Find companies in that situation',
-        body: 'Then I look for public evidence of that trigger across your market. Job posts, expansion news, new locations, leadership changes, industry directories, local filings. Wherever your buyers leave traces.',
+        body: 'I look for public signs of the same situation. Job posts, expansion news, new locations, leadership changes.',
         output:
           'Corvin announced expansion into the Southeast last month. Four regional sales director roles are open.',
       },
       {
-        title: 'Find the people who matter',
-        body: "A good reason is wasted on the wrong person. I work out who owns the problem, who feels it first and who signs off, and find contact details I've checked.",
+        title: 'Find the right people',
+        body: 'Who owns the problem, who feels it first, and who signs. With checked contact details.',
         output:
           'VP of Field Sales (owns coverage). The new regional directors once hired (feel it first). Sales ops manager (will evaluate tools).',
       },
       {
-        title: 'Turn research into outbound',
-        body: "Each message is built around what's actually happening at that company. I test a few angles and keep the ones that start real conversations.",
+        title: 'Write the outbound',
+        body: "Every email is built on what's happening at that company. I test angles and keep what gets replies.",
         email: {
           subject: 'the Southeast expansion',
           paragraphs: [
@@ -221,32 +194,26 @@ export const home = {
         angles: 'Angles tested on accounts like this: store coverage · ramp time for new reps · manager visibility',
       },
       {
-        title: 'Make it repeatable',
-        body: 'The research shouldn\'t start from zero every quarter. I set it up so the same search keeps running, and new companies that show the same signs reach your team with the evidence attached.',
+        title: 'Keep it running',
+        body: 'The search keeps going, so new companies with the same signs reach your team with the reasons attached.',
         output:
           'Next month, the next company that announces an expansion and starts hiring regional leaders shows up on its own, with the reasons already written down.',
       },
     ],
-    closing:
-      "AI makes the digging faster. It doesn't know what to dig for. Deciding that, and deciding what's worth saying, is judgment. That's most of the job.",
+    closing: 'AI makes the digging faster. Knowing what to dig for is the job.',
     system: {
-      title: 'The conversations are the point. What builds up behind them is worth something too.',
+      title: 'What keeps running after the first campaign',
       items: [
-        'Your market, mapped and kept current. New companies get added as they show up.',
-        'Live signals, watched. When something changes at an account, you hear about it.',
-        'Your CRM, enriched with what the research found, not just names and emails.',
+        'Your market, always mapped. New companies added as they appear.',
+        'Live signals, watched. You hear when something changes.',
+        'Your CRM, enriched with the why, not just emails.',
       ],
-      closing: "It keeps working after the first campaign. That's what I mean by a system.",
     },
   },
   proof: {
-    eyebrow: 'The work',
-    title: "You don't get a spreadsheet. You get reasons to reach out.",
-    subhead:
-      'I spent about 2.5 years doing this work at The Kiln, with 20+ clients across different industries. The tools changed every few months. The question never did: **why would this company care right now?**',
+    title: 'Every account comes with the reason, the source, and how sure I am.',
     brief: {
       title: 'Account brief · Corvin Storeworks',
-      label: 'Example',
       whoLabel: 'Who they are',
       who: 'In-store merchandising company. Reps visit retail stores across the Midwest.',
       whyNowLabel: 'Why now',
@@ -264,44 +231,42 @@ export const home = {
       confidenceLabel: 'Confidence',
       confidence:
         'Medium. The expansion and hiring are confirmed. Whether they already have a tool for this is not.',
-      caption: 'Every account comes with the evidence, the source and an honest read on how sure I am.',
     },
-    modesTitle: 'Choose who runs it. The thinking is the same.',
+    modesTitle: 'Two ways to work together',
     modes: [
       {
         title: 'Done for you',
         line: 'I build the system and run the outbound.',
         forLabel: 'For',
-        for: "Teams that need more of the right conversations and don't have the people to chase them.",
-        listLabel: 'What I handle',
+        for: "teams that need more of the right conversations and don't have people to chase them.",
+        listLabel: 'I handle',
         items: [
-          'Working out why your customers buy',
-          'Finding the companies that show those signs',
-          'Finding the right people and their contact details',
-          'Writing, sending and testing the messages',
-          "Telling you what's working and what isn't",
+          'why your customers buy',
+          'finding the companies',
+          'finding the people',
+          'writing, sending and testing',
+          'reporting what works',
         ],
-        youLabel: 'What you do',
-        you: "Take the conversations, and tell me what you're hearing so the targeting keeps getting sharper.",
+        youLabel: 'You',
+        you: 'take the conversations.',
       },
       {
         title: 'Built for your team',
         line: 'I build the system. Your team runs it.',
         forLabel: 'For',
-        for: 'Teams with sellers who are good at conversations but spend too long on research.',
-        listLabel: 'What I build',
+        for: 'teams with good sellers who spend too long on research.',
+        listLabel: 'I build',
         items: [
-          'Research workflows and sources for your specific market',
-          'A research assistant your reps can use on any account',
-          'Message angles for the situations your buyers are usually in',
-          'Documentation and training, so your team owns it without me',
+          'research workflows for your market',
+          'a research assistant for your reps',
+          'message angles',
+          'docs and training',
         ],
-        youLabel: 'What you do',
-        you: "Run it. You shouldn't need me in the loop.",
+        youLabel: 'You',
+        you: "run it. You won't need me in the loop.",
       },
     ],
     concept: {
-      label: 'Concept. The real version is built around your market.',
       prompt: 'Research Corvin Storeworks for our field sales app.',
       findingsLabel: 'Findings',
       findings: [
@@ -314,38 +279,31 @@ export const home = {
       anglesLabel: 'Ways to open the conversation',
       angles: ['store coverage', 'ramp time for new reps', 'manager visibility'],
     },
-    modesNote: 'No packages to pick from. You can decide which fits after we talk.',
     fitTitle: 'Is this for you?',
-    goodTitle: 'This is probably for you if',
+    goodTitle: 'Probably yes if',
     good: [
-      'You sell a sales-led B2B product into a specific industry.',
-      'You can describe the problem your product solves in one sentence.',
-      "Your team could handle more good conversations than it's getting.",
+      'You sell a B2B product into a specific industry.',
+      'You can say what problem you solve in one sentence.',
+      'Your team could take more good conversations.',
     ],
-    badTitle: 'Probably not for you if',
+    badTitle: 'Probably not if',
     bad: [
       'You want 50,000 contacts by Friday.',
-      'Your product is sold self-serve to anyone with a credit card.',
-      "You're looking for guaranteed meetings. I don't promise those. I promise better reasons to start them.",
+      'You sell self-serve.',
+      "You want guaranteed meetings. I don't sell those.",
     ],
-    cta: "Let's talk about your market",
   },
   about: {
-    eyebrow: "Who you'd work with",
     title: "Hey, I'm Ankit.",
     paragraphs: [
-      'I spent about 2.5 years at The Kiln, a GTM agency, working with 20+ clients on how they find and reach new customers.',
-      "Most of that time went into a few questions. Which companies are actually worth contacting? Where do you find them when they're not in the usual databases? What makes them relevant this month and not last year? And how do you turn that into a message a busy person answers?",
-      "Different industries, different products, same lesson. Finding more contacts is the easy part. **Understanding why a company might need what you sell** is the part that starts conversations.",
-      "That's what Redstone GTM is built around.",
-      'When you work with me, you work with me. I do the research, build the systems and write the messages myself. No account managers in between.',
-      "If you're trying to reach more of the right companies, I'd like to hear what you're selling.",
+      "I spent 2.5 years at The Kiln, one of Clay's leading partner agencies (acquired by 2X in 2026), building research and outbound systems for 20+ B2B companies.",
+      'Every project came down to one question: which companies have a reason to talk to you right now, and how do you know?',
+      'Redstone GTM is built around that question. I do the research, build the systems and write the messages myself.',
     ],
     photoAlt: 'Ankit Singh, founder of Redstone GTM, at an industry event.',
-    facts: ['About 2.5 years at The Kiln', '20+ clients', 'Based in Bangalore'],
-    factsNote: 'The Kiln was my previous employer. Redstone GTM is my own, independent business.',
+    facts: ['2.5 years at The Kiln', '20+ B2B clients'],
     recsTitle: "What it's like working with me",
-    recsSubhead: 'LinkedIn recommendations from people I worked with at The Kiln. Quoted as written.',
+    recsSubhead: 'From people I worked with at The Kiln, on LinkedIn.',
     recsLink: 'Read all recommendations on LinkedIn',
     recommendations: [
       {
@@ -383,32 +341,17 @@ export const home = {
     ],
   },
   finalCta: {
-    title: 'Somewhere outside your current list are companies with a reason to talk to you.',
-    subhead:
-      "If your product solves a real problem, there's probably more to your market than the companies your team already knows. Let's look at what you sell and where those companies might be.",
-    nextLabel: 'What happens next',
-    steps: [
-      { title: 'Pick a time.', body: "It's a call with me, not a sales team." },
-      {
-        title: 'We talk through your market.',
-        body: "What you sell, who buys it today, and what you've already tried.",
-      },
-      {
-        title: 'You get my honest take.',
-        body: "Where I'd start looking, and whether I'm the right person to help. If I'm not, I'll say so.",
-      },
-    ],
+    title: "There are good customers outside your current list. Let's find them.",
+    line: "You tell me what you sell. I tell you where I'd look first.",
     primary: "Let's talk about your market",
     emailLabel: 'Email me at ankit@redstonegtm.com',
     linkedinLabel: 'Message me on LinkedIn',
-    microcopy: 'No pitch deck. No obligation. Just a conversation about your market.',
   },
   footer: {
-    line: 'Finding the companies with a reason to talk to you, and starting the conversation.',
+    line: 'Finding the companies with a reason to talk to you.',
     book: 'Book a call',
     email: 'ankit@redstonegtm.com',
     linkedin: 'LinkedIn',
-    note: 'Recommendations are from LinkedIn and describe my work at The Kiln.',
-    copyright: '© 2026 Redstone GTM · Bangalore, India',
+    copyright: '© 2026 Redstone GTM',
   },
 } as const;
