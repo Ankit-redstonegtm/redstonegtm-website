@@ -68,15 +68,17 @@ const cards = [
           )}
         </span>
         <h3>{card.title}</h3>
-        <p>{card.line}</p>
-        {card.featured && (
-          <p class="follow-latest">
-            <a href={site.substackLatest.url} target="_blank" rel="noopener noreferrer">
-              {follow.latestLabel}: {site.substackLatest.title} →
-              <span class="sr-only"> (opens in a new tab)</span>
-            </a>
-          </p>
-        )}
+        <div class="follow-copy">
+          <p>{card.line}</p>
+          {card.featured && (
+            <p class="follow-latest">
+              <a href={site.substackLatest.url} target="_blank" rel="noopener noreferrer">
+                {follow.latestLabel}: {site.substackLatest.title} →
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          )}
+        </div>
         <a class:list={['btn', !card.featured && 'btn-quiet']} href={card.href} target="_blank" rel="noopener noreferrer">
           {card.button}
           <span class="sr-only"> (opens in a new tab)</span>
