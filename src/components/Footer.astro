@@ -1,0 +1,31 @@
+---
+import Button from './Button.astro';
+import { bookingCta, nav, site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">Redstone GTM</p>
+      <p class="footer-blurb">
+        Fractional GTM engineering for sales-led vertical B2B SaaS. Ankit Singh, Bangalore.
+      </p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      {
+        nav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))
+      }
+    </nav>
+    <div class="footer-meta">
+      <p>Bangalore, India</p>
+      <Button href={site.bookingUrl} label={bookingCta} variant="small" />
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p>© {year} Redstone GTM</p>
+  </div>
+</footer>

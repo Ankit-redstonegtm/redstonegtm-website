@@ -1,0 +1,25 @@
+---
+import { home } from '../../data/home';
+
+const { comparison } = home;
+---
+
+<section class="section" id="why-fractional" aria-labelledby="comparison-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{comparison.eyebrow}</p>
+      <h2 id="comparison-title">{comparison.title}</h2>
+      <p class="lede">{comparison.lede}</p>
+    </div>
+    <div class="compare-list">
+      {
+        comparison.items.map((item) => (
+          <article class="compare-row">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

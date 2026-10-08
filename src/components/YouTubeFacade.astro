@@ -1,0 +1,49 @@
+---
+interface Props {
+  youtubeId?: string;
+  title: string;
+}
+
+const { youtubeId = '', title } = Astro.props;
+const id = youtubeId.trim();
+const valid = /^[A-Za-z0-9_-]{11}$/.test(id);
+---
+
+{
+  valid ? (
+    <button class="yt" type="button" data-youtube-id={id} data-title={title} aria-label={`Play video: ${title}`}>
+      <span class="yt-play" aria-hidden="true" />
+      <span class="yt-label">Play video</span>
+    </button>
+  ) : (
+    <div class="notice">
+      Example. Add an 11-character youtubeId in this resource’s frontmatter. The player does not call YouTube until
+      that id is set, and it still will not load an iframe before someone presses play.
+    </div>
+  )
+}
+
+<script>
+  document.querySelectorAll('.yt').forEach((node) => {
+    if (!(node instanceof HTMLButtonElement)) return;
+    const id = node.dataset.youtubeId || '';
+    const title = node.dataset.title || 'Video';
+    if (!/^[\w-]{11}$/.test(id)) return;
+
+    node.addEventListener(
+      'click',
+      () => {
+        const iframe = document.createElement('iframe');
+        iframe.className = 'yt-frame';
+        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1`;
+        iframe.title = title;
+        iframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        node.replaceWith(iframe);
+      },
+      { once: true },
+    );
+  });
+</script>

@@ -1,0 +1,78 @@
+---
+import { render } from 'astro:content';
+import LeadGate from '../../components/LeadGate.astro';
+import YouTubeFacade from '../../components/YouTubeFacade.astro';
+import { resourceTypeLabel, site } from '../../data/site';
+import Base from '../../layouts/Base.astro';
+import { breadcrumbJsonLd } from '../../lib/jsonld';
+import { getResources } from '../../lib/resources';
+
+export async function getStaticPaths() {
+  const entries = await getResources();
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const label = resourceTypeLabel[entry.data.type];
+const title = `${entry.data.title} | Redstone GTM`;
+const canonical = new URL(`/resources/${entry.id}`, site.url).href;
+const crumbs = breadcrumbJsonLd([
+  { name: 'Home', url: `${site.url}/` },
+  { name: 'Resources', url: `${site.url}/resources` },
+  { name: entry.data.title, url: canonical },
+]);
+---
+
+<Base title={title} description={entry.data.description} jsonLd={[crumbs]}>
+  <article class="resource">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+        <ol class="crumbs">
+          <li><a href="/">Home</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li aria-current="page">{entry.data.title}</li>
+        </ol>
+      </nav>
+      <header class="resource-header">
+        <p class="tag">{label}</p>
+        <h1>{entry.data.title}</h1>
+        <p class="lede">{entry.data.description}</p>
+      </header>
+      <div class="resource-body">
+        {entry.data.notice && <p class="notice">{entry.data.notice}</p>}
+        {
+          entry.data.type === 'video' && (
+            <YouTubeFacade youtubeId={entry.data.youtubeId} title={entry.data.title} />
+          )
+        }
+        {
+          entry.data.type === 'lead-magnet' && entry.data.gated && entry.data.gate && (
+            <LeadGate
+              resourceId={entry.id}
+              title={entry.data.gate.title}
+              body={entry.data.gate.body}
+              button={entry.data.gate.button}
+            />
+          )
+        }
+        {
+          entry.data.type === 'link' && entry.data.externalUrl && (
+            <p class="outbound">
+              <a class="text-link" href={entry.data.externalUrl} target="_blank" rel="noopener noreferrer">
+                Open the link
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          )
+        }
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>

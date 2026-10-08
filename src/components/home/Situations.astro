@@ -1,0 +1,25 @@
+---
+import { home } from '../../data/home';
+
+const { situations } = home;
+---
+
+<section class="section" id="situations" aria-labelledby="situations-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{situations.eyebrow}</p>
+      <h2 id="situations-title">{situations.title}</h2>
+      <p class="lede">{situations.lede}</p>
+    </div>
+    <ol class="situation-list">
+      {
+        situations.items.map((item, index) => (
+          <li class="situation">
+            <span class="num">{String(index + 1).padStart(2, '0')}</span>
+            <p>{item}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

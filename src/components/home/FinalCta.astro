@@ -1,0 +1,20 @@
+---
+import BookingEmbed from '../BookingEmbed.astro';
+import Button from '../Button.astro';
+import { home } from '../../data/home';
+import { bookingCta, site } from '../../data/site';
+
+const { finalCta } = home;
+---
+
+<section class="section final" id="book" aria-labelledby="final-title">
+  <div class="wrap">
+    <p class="eyebrow">{finalCta.eyebrow}</p>
+    <h2 id="final-title">{finalCta.title}</h2>
+    <p class="lede">{finalCta.lede}</p>
+    <div class="hero-actions">
+      <Button href={site.bookingUrl} label={bookingCta} />
+    </div>
+    <BookingEmbed />
+  </div>
+</section>

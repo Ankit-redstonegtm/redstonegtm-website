@@ -1,0 +1,33 @@
+---
+import { home } from '../../data/home';
+
+const { ownership } = home;
+---
+
+<section class="section" id="what-i-own" aria-labelledby="ownership-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{ownership.eyebrow}</p>
+      <h2 id="ownership-title">{ownership.title}</h2>
+      <p class="lede">{ownership.lede}</p>
+    </div>
+    <div class="own-list">
+      {
+        ownership.groups.map((group, index) => (
+          <article class="own-row">
+            <div class="own-title">
+              <span class="num">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{group.title}</h3>
+            </div>
+            <p class="own-summary">{group.summary}</p>
+            <ul class="ticks">
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

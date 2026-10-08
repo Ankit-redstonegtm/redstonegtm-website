@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import founder from '../../assets/founder.png';
+import { home } from '../../data/home';
+
+const { fractional } = home;
+---
+
+<section class="section band" id="fractional" aria-labelledby="fractional-title">
+  <div class="wrap fractional-grid">
+    <div class="fractional-copy">
+      <div>
+        <p class="eyebrow">{fractional.eyebrow}</p>
+        <h2 id="fractional-title">{fractional.title}</h2>
+      </div>
+      {fractional.paragraphs.map((paragraph) => <p class="lede">{paragraph}</p>)}
+      <ul class="points">
+        {
+          fractional.points.map((point) => (
+            <li>
+              <h3>{point.title}</h3>
+              <p>{point.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <figure class="portrait-wrap">
+      <Image
+        src={founder}
+        alt={fractional.portraitAlt}
+        width={304}
+        height={380}
+        widths={[304, 480, 608]}
+        sizes="(min-width: 900px) 300px, 72vw"
+        quality={88}
+        loading="lazy"
+        class="portrait"
+      />
+      <figcaption>
+        <span class="caption-name">{fractional.portraitName}</span>
+        <span class="caption-role">{fractional.portraitRole}</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>

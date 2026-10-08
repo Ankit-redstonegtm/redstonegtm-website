@@ -1,0 +1,32 @@
+EXAMPLE — Redstone GTM
+TAM mapping checklist for a sales-led vertical SaaS company
+This file is a stand-in lead magnet. It is not a client deliverable.
+
+1. Name the motion
+   - Who sells, to whom, and what "closed-won" has actually looked like.
+   - One primary market. A second market is a second list.
+
+2. Separate the ICP from the slogan
+   - Which firmographics show up in wins.
+   - Which attributes were assumed and do not survive the win data.
+   - Which exclusions matter (size, geography, tech, business model).
+
+3. Build the account universe
+   - Sources beyond the CRM and beyond LinkedIn.
+   - A rule for what counts as an account in this vertical.
+   - A single list, with a stable id, that the CRM can stay aligned to.
+
+4. Mark what you do not know
+   - Coverage gaps by segment or geography.
+   - Accounts in the CRM that are not in the market.
+   - Accounts in the market that are not in the CRM.
+
+5. Only then prioritize
+   - Fit from the win pattern, independent of timing.
+   - A tier the team will actually work.
+   - A field the CRM and the campaigns can gate on.
+
+6. Hand it to a rep
+   - Can a new AE tell, from the record, whether an account is in the market?
+   - Can they tell who to contact first, without a side spreadsheet?
+   - If not, the map is not finished.
