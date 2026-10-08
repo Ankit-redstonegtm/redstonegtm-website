@@ -23,7 +23,6 @@ export const site = {
   founder: {
     name: 'Ankit Singh',
     jobTitle: 'Founder',
-    location: 'Bangalore',
     sameAs: ['https://www.linkedin.com/in/ankit-gtm/'],
   },
 } as const;
@@ -35,7 +34,7 @@ export const primaryCta = "Let's talk about your market";
 export const nav = [
   { label: 'Examples', href: '/#examples' },
   { label: 'How it works', href: '/#how-it-works' },
-  { label: 'About Ankit', href: '/#about' },
+  { label: 'About', href: '/#about' },
 ] as const;
 
 export const resourceTypeLabel = {

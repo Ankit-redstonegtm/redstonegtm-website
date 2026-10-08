@@ -20,7 +20,6 @@ export function organizationJsonLd() {
       '@type': 'Place',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: site.founder.location,
         addressCountry: 'IN',
       },
     },
@@ -44,7 +43,6 @@ export function organizationJsonLd() {
         areaServed: 'Worldwide',
         address: {
           '@type': 'PostalAddress',
-          addressLocality: site.founder.location,
           addressCountry: 'IN',
         },
         sameAs: [...site.founder.sameAs],

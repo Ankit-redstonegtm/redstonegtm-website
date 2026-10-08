@@ -1,5 +1,4 @@
 ---
-import Em from '../Em.astro';
 import { home } from '../../data/home';
 
 const { problem } = home;
@@ -8,17 +7,12 @@ const { problem } = home;
 <section class="section band" aria-labelledby="problem-title">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">{problem.eyebrow}</p>
       <h2 id="problem-title">{problem.title}</h2>
-      {problem.paragraphs.map((paragraph) => (
-        <p class="lede">
-          <Em text={paragraph} />
-        </p>
-      ))}
+      <p class="lede">{problem.body}</p>
     </div>
     <ol class="scene-grid">
       {
-        problem.scenes.map((scene, index) => (
+        problem.lines.map((line, index) => (
           <li class="scene">
             <div class="scene-art" aria-hidden="true">
               {index === 0 && (
@@ -64,8 +58,7 @@ const { problem } = home;
                 </svg>
               )}
             </div>
-            <h3>{scene.title}</h3>
-            <p>{scene.body}</p>
+            <h3>{line}</h3>
           </li>
         ))
       }
