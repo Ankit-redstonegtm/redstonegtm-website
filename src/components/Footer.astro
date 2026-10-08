@@ -1,0 +1,28 @@
+---
+import { home } from '../data/home';
+import { site } from '../data/site';
+
+const { footer } = home;
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">Redstone GTM</p>
+      <p class="footer-blurb">{footer.line}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
+        {footer.book}<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      <a href={`mailto:${site.email}`}>{footer.email}</a>
+      <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
+        {footer.linkedin}<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </nav>
+  </div>
+  <div class="wrap footer-base">
+    <p>{footer.note}</p>
+    <p>{footer.copyright}</p>
+  </div>
+</footer>

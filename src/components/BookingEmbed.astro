@@ -1,0 +1,18 @@
+---
+import { site } from '../data/site';
+
+const src = site.bookingEmbedUrl;
+---
+
+{
+  src && (
+    <div class="booking-embed">
+      <iframe
+        src={src}
+        title="Book a call with Redstone GTM"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      />
+    </div>
+  )
+}

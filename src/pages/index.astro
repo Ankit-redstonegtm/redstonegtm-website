@@ -1,0 +1,27 @@
+---
+import About from '../components/home/About.astro';
+import BetterWay from '../components/home/BetterWay.astro';
+import Difference from '../components/home/Difference.astro';
+import FinalCta from '../components/home/FinalCta.astro';
+import Hero from '../components/home/Hero.astro';
+import Problem from '../components/home/Problem.astro';
+import Proof from '../components/home/Proof.astro';
+import { home } from '../data/home';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title={home.meta.title}
+  description={home.meta.description}
+  ogTitle={home.meta.ogTitle}
+  ogDescription={home.meta.ogDescription}
+  imageAlt={home.meta.imageAlt}
+>
+  <Hero />
+  <Difference />
+  <Problem />
+  <BetterWay />
+  <Proof />
+  <About />
+  <FinalCta />
+</Base>

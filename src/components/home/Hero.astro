@@ -1,0 +1,70 @@
+---
+import Button from '../Button.astro';
+import Em from '../Em.astro';
+import { home } from '../../data/home';
+import { site } from '../../data/site';
+
+const { hero } = home;
+const [market, one, evidence, email, goal] = hero.stages;
+---
+
+<section class="section hero" aria-labelledby="hero-title">
+  <div class="wrap hero-copy">
+    <p class="eyebrow">{hero.eyebrow}</p>
+    <h1 id="hero-title">{hero.title}</h1>
+    <p class="lede"><Em text={hero.subhead} /></p>
+    <div class="hero-actions">
+      <Button href={site.bookingUrl} label={hero.primary} />
+      <a class="btn btn-quiet" href="#examples">{hero.secondary}</a>
+    </div>
+    <p class="micro">{hero.microcopy}</p>
+  </div>
+
+  <div class="wrap">
+    <figure class="strip">
+      <ol class="strip-stages">
+        <li class="stage stage-market">
+          <p class="stage-kicker">{market.kicker}</p>
+          <div class="market-grid" aria-hidden="true">
+            {
+              Array.from({ length: 6 }, () => (
+                <span class="market-row">
+                  <i />
+                  <b />
+                </span>
+              ))
+            }
+          </div>
+          <p class="stage-detail">{market.detail}</p>
+        </li>
+        <li class="stage stage-one">
+          <p class="stage-kicker">{one.kicker}</p>
+          <p class="picked-row">{one.detail}</p>
+        </li>
+        <li class="stage stage-evidence">
+          <p class="stage-kicker">{evidence.kicker}</p>
+          <ul class="evidence-list">
+            {
+              evidence.findings?.map((finding) => (
+                <li>
+                  <span>{finding.text}</span>
+                  <span class="source">{finding.source}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="why-line"><span>Why it might matter: </span>{evidence.why}</p>
+        </li>
+        <li class="stage stage-email">
+          <p class="stage-kicker">{email.kicker}</p>
+          <p class="email-line">{email.detail}</p>
+        </li>
+        <li class="stage stage-reply">
+          <p class="stage-kicker">{goal.kicker}</p>
+          <p class="reply">{goal.reply}</p>
+        </li>
+      </ol>
+      <figcaption class="ex-label">{hero.stripLabel}</figcaption>
+    </figure>
+  </div>
+</section>

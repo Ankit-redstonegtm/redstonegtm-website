@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import mark from '../assets/mark.png';
+import Button from './Button.astro';
+import { nav, navCta, site } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+function current(href: string) {
+  if (href.startsWith('/#')) return false;
+  const clean = href.replace(/\/$/, '') || '/';
+  return path === clean || path.startsWith(`${clean}/`);
+}
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Redstone GTM, home">
+      <Image src={mark} alt="" width={32} height={32} densities={[2, 3]} quality={95} loading="eager" />
+      <span class="wordmark">Redstone GTM</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a href={item.href} aria-current={current(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="header-actions">
+      <details class="menu">
+        <summary>
+          <span class="menu-glyph" aria-hidden="true"></span>
+          <span class="sr-only when-closed">Open menu</span>
+          <span class="sr-only when-open">Close menu</span>
+        </summary>
+        <nav class="menu-panel" aria-label="Mobile">
+          {
+            nav.map((item) => (
+              <a href={item.href} aria-current={current(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+      <Button href={site.bookingUrl} label={navCta} variant="small" />
+    </div>
+  </div>
+</header>
+
+<script>
+  const menu = document.querySelector('.menu');
+  if (menu instanceof HTMLDetailsElement) {
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') menu.open = false;
+    });
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.open = false;
+      });
+    });
+  }
+</script>

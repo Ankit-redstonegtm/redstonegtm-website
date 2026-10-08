@@ -1,0 +1,128 @@
+---
+import { leadForm } from '../data/forms';
+import { site } from '../data/site';
+
+interface Props {
+  resourceId: string;
+  title: string;
+  body: string;
+  button: string;
+}
+
+const { resourceId, title, body, button } = Astro.props;
+const endpoint = site.leadFormEndpoint;
+---
+
+<div class="gate" data-lead>
+  <h2>{title}</h2>
+  <p>{body}</p>
+  <form
+    class="fields"
+    data-lead-form
+    method="post"
+    action={endpoint}
+    data-endpoint={endpoint}
+  >
+    <div class="field">
+      <label for={`name-${resourceId}`}>{leadForm.nameLabel}</label>
+      <input id={`name-${resourceId}`} name="name" type="text" autocomplete="name" required maxlength="120" />
+    </div>
+    <div class="field">
+      <label for={`email-${resourceId}`}>{leadForm.emailLabel}</label>
+      <input
+        id={`email-${resourceId}`}
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+        maxlength="200"
+        inputmode="email"
+        spellcheck="false"
+      />
+    </div>
+    <div class="hp" aria-hidden="true">
+      <label for={`company-${resourceId}`}>Company website</label>
+      <input id={`company-${resourceId}`} name="company_website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+    <input type="hidden" name="resource" value={resourceId} />
+    <input type="hidden" name="return_to" value={Astro.url.pathname} />
+    <button class="btn" type="submit" data-label={button}>{button}</button>
+    <p class="form-error" data-error hidden role="alert"></p>
+    <noscript>
+      <p>{leadForm.noscript}</p>
+    </noscript>
+  </form>
+  <div class="gate-success" data-lead-success hidden tabindex="-1" role="status">
+    <h2>{leadForm.successTitle}</h2>
+    <p data-success-body>{leadForm.successBody}</p>
+    <p><a class="text-link" data-asset href="#">{leadForm.successTitle}</a></p>
+  </div>
+</div>
+
+<script>
+  const pendingLabel = 'Sending';
+  const fallback = 'Something went wrong. Try again, or book a call.';
+
+  document.querySelectorAll('[data-lead]').forEach((root) => {
+    const form = root.querySelector('[data-lead-form]');
+    const success = root.querySelector('[data-lead-success]');
+    if (!(form instanceof HTMLFormElement) || !(success instanceof HTMLElement)) return;
+
+    const error = form.querySelector('[data-error]');
+    const button = form.querySelector('button[type="submit"]');
+    const asset = success.querySelector('[data-asset]');
+    const successBody = success.querySelector('[data-success-body]');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!(button instanceof HTMLButtonElement)) return;
+      const data = new FormData(form);
+      if (String(data.get('company_website') || '').trim()) return;
+
+      if (error instanceof HTMLElement) error.hidden = true;
+      const label = button.dataset.label || button.textContent || '';
+      button.disabled = true;
+      button.textContent = pendingLabel;
+
+      try {
+        const response = await fetch(form.dataset.endpoint || form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.get('name'),
+            email: data.get('email'),
+            resource: data.get('resource'),
+            company_website: data.get('company_website') || '',
+          }),
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(typeof payload.error === 'string' ? payload.error : fallback);
+        }
+        if (asset instanceof HTMLAnchorElement && typeof payload.assetUrl === 'string' && payload.assetUrl) {
+          asset.href = payload.assetUrl;
+          asset.textContent = typeof payload.assetLabel === 'string' && payload.assetLabel ? payload.assetLabel : 'Download';
+          asset.hidden = false;
+        } else if (asset instanceof HTMLElement) {
+          asset.hidden = true;
+          if (successBody) {
+            successBody.textContent = 'Thanks. If this form is connected to an email tool, the file will arrive there.';
+          }
+        }
+        form.hidden = true;
+        success.hidden = false;
+        success.focus();
+      } catch (caught) {
+        if (error instanceof HTMLElement) {
+          error.textContent = caught instanceof Error ? caught.message : fallback;
+          error.hidden = false;
+        }
+        button.disabled = false;
+        button.textContent = label;
+      }
+    });
+  });
+</script>

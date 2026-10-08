@@ -1,0 +1,152 @@
+---
+import Em from '../Em.astro';
+import { home } from '../../data/home';
+
+const { method } = home;
+---
+
+<section class="section" id="how-it-works" aria-labelledby="method-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{method.eyebrow}</p>
+      <h2 id="method-title">{method.title}</h2>
+      <p class="lede"><Em text={method.subhead} /></p>
+    </div>
+    <p class="context"><span class="ex-label">Example</span> {method.context}</p>
+
+    <div class="method">
+      <ol class="method-steps">
+        {
+          method.steps.map((step, index) => (
+            <li class="method-step" data-step={index + 1}>
+              <span class="step-dot">{index + 1}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+                <div class="step-output">
+                  <p class="output-label">{method.accountLabel}</p>
+                  {'email' in step && step.email ? (
+                    <div class="letter">
+                      <p class="letter-subject">Subject: {step.email.subject}</p>
+                      {step.email.paragraphs.map((paragraph) => (
+                        <p>{paragraph}</p>
+                      ))}
+                    </div>
+                  ) : (
+                    <p>{'output' in step ? step.output : ''}</p>
+                  )}
+                  {'angles' in step && step.angles && <p class="angles">{step.angles}</p>}
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <aside class="pin" aria-hidden="true">
+        <div class="live-card">
+          <div class="live-top">
+            <p>{method.accountName}</p>
+            <ol class="dots">
+              {method.steps.map((_, index) => (
+                <li data-dot={index + 1}>{index + 1}</li>
+              ))}
+            </ol>
+          </div>
+          <p class="output-label">{method.accountLabel}</p>
+          {
+            method.steps.map((step, index) => (
+              <div class="live-slice" data-step={index + 1}>
+                {'email' in step && step.email ? (
+                  <div class="letter">
+                    <p class="letter-subject">Subject: {step.email.subject}</p>
+                    {step.email.paragraphs.map((paragraph) => (
+                      <p>{paragraph}</p>
+                    ))}
+                  </div>
+                ) : (
+                  <p>{'output' in step ? step.output : ''}</p>
+                )}
+                {'angles' in step && step.angles && <p class="angles">{step.angles}</p>}
+              </div>
+            ))
+          }
+        </div>
+      </aside>
+    </div>
+
+    <p class="close-line method-close">{method.closing}</p>
+
+    <div class="system-block">
+      <h3>{method.system.title}</h3>
+      <ul class="system-grid">
+        <li>
+          <div class="artifact" aria-hidden="true">
+            <p class="artifact-kicker">Accounts</p>
+            <span><i /><em>Fit</em></span>
+            <span><i /><em>Fit</em></span>
+            <span class="is-new"><i /><em>New</em></span>
+          </div>
+          <p>{method.system.items[0]}</p>
+        </li>
+        <li>
+          <div class="artifact artifact-signal" aria-hidden="true">
+            <p class="artifact-kicker">Signal</p>
+            <p class="artifact-account">{method.accountName}</p>
+            <p class="artifact-alert">Expansion announced</p>
+          </div>
+          <p>{method.system.items[1]}</p>
+        </li>
+        <li>
+          <div class="artifact artifact-crm" aria-hidden="true">
+            <p class="artifact-kicker">CRM</p>
+            <p><span>Account</span> {method.accountName}</p>
+            <p><span>Contact</span> Marisol, VP of Field Sales</p>
+            <p class="crm-why"><span>Why now</span> Expansion into the Southeast</p>
+          </div>
+          <p>{method.system.items[2]}</p>
+        </li>
+      </ul>
+      <p class="system-close">{method.system.closing}</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector('.method');
+  const pin = document.querySelector('.pin');
+  if (root && pin && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const steps = Array.from(root.querySelectorAll<HTMLElement>('.method-step'));
+    const slices = Array.from(pin.querySelectorAll<HTMLElement>('.live-slice'));
+    const dots = Array.from(pin.querySelectorAll<HTMLElement>('[data-dot]'));
+
+    function show(step: number) {
+      slices.forEach((slice) => {
+        const n = Number(slice.dataset.step);
+        if (n <= step) slice.removeAttribute('hidden');
+        else slice.setAttribute('hidden', '');
+      });
+      dots.forEach((dot) => {
+        dot.classList.toggle('is-on', Number(dot.dataset.dot) <= step);
+        dot.classList.toggle('is-current', Number(dot.dataset.dot) === step);
+      });
+    }
+
+    show(1);
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          const step = Number((visible.target as HTMLElement).dataset.step);
+          if (step) show(step);
+        },
+        { rootMargin: '-35% 0px -50% 0px', threshold: [0, 0.4, 1] },
+      );
+      steps.forEach((step) => observer.observe(step));
+    }
+  }
+</script>

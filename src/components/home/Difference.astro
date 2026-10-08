@@ -1,0 +1,185 @@
+---
+import Button from '../Button.astro';
+import Em from '../Em.astro';
+import { home } from '../../data/home';
+import { site } from '../../data/site';
+
+const { difference } = home;
+const [filterTitle, researchTitle, sayTitle] = difference.panels;
+---
+
+<section class="section" id="examples" aria-labelledby="examples-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{difference.eyebrow}</p>
+      <h2 id="examples-title">{difference.title}</h2>
+      <p class="lede"><Em text={difference.subhead} /></p>
+    </div>
+
+    <div class="switcher">
+      <div class="example-tabs">
+        {
+          difference.examples.map((example) => (
+            <a class="example-tab" href={`#${example.id}`}>
+              {example.tab}
+            </a>
+          ))
+        }
+      </div>
+
+      {
+        difference.examples.map((example, index) => (
+          <div class:list={['example', index === 0 && 'example-first']} id={example.id}>
+            <p class="ex-label">{difference.exampleLabel}</p>
+            <p class="sells">
+              <span>If you sell: </span>
+              {example.sells}
+            </p>
+            <div class="triptych">
+              <div class="panel panel-filter">
+                <h3>{filterTitle}</h3>
+                <ul class="chips">
+                  {example.chips.map((chip) => (
+                    <li>{chip}</li>
+                  ))}
+                </ul>
+                <p>{difference.filterLine}</p>
+                <ul class="fit-rows" aria-hidden="true">
+                  <li><i /><b /></li>
+                  <li><i /><b /></li>
+                  <li><i /><b /></li>
+                  <li><i /><b /></li>
+                </ul>
+              </div>
+              <span class="flow-arrow" aria-hidden="true" />
+              <div class="panel panel-research">
+                <h3>{researchTitle}</h3>
+                <p class="company-line">
+                  <strong>{example.company}</strong>
+                  <span> · {example.companyNote}</span>
+                </p>
+                <ul class="finding-list">
+                  {example.findings.map((finding) => (
+                    <li>
+                      <span>{finding.text}</span>
+                      <span class="source">{finding.source}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p class="callout">
+                  <strong>{difference.whyLabel}: </strong>
+                  {example.why}
+                </p>
+                <p class="callout still">
+                  <strong>{difference.stillLabel}: </strong>
+                  {example.still}
+                </p>
+              </div>
+              <span class="flow-arrow" aria-hidden="true" />
+              <div class="panel panel-say">
+                <h3>{sayTitle}</h3>
+                <div class="letter">
+                  <p class="letter-subject">Subject: {example.email.subject}</p>
+                  {example.email.paragraphs.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="section-close">
+      <p class="close-line">{difference.closing}</p>
+      <Button href={site.bookingUrl} label={difference.cta} />
+      <p class="micro">{difference.microcopy}</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector('.switcher');
+  if (root) {
+    const tabs = Array.from(root.querySelectorAll<HTMLAnchorElement>('.example-tab'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('.example'));
+    const tablist = root.querySelector('.example-tabs');
+
+    if (tablist) {
+      tablist.setAttribute('role', 'tablist');
+      tablist.setAttribute('aria-label', 'Examples');
+    }
+
+    tabs.forEach((tab) => {
+      const id = (tab.getAttribute('href') || '').slice(1);
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', id);
+    });
+
+    panels.forEach((panel) => {
+      panel.setAttribute('role', 'tabpanel');
+      const tab = tabs.find((item) => item.getAttribute('aria-controls') === panel.id);
+      if (tab) {
+        if (!tab.id) tab.id = `tab-${panel.id}`;
+        panel.setAttribute('aria-labelledby', tab.id);
+      }
+    });
+
+    function select(id: string) {
+      tabs.forEach((tab) => {
+        const on = tab.getAttribute('aria-controls') === id;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        const on = panel.id === id;
+        panel.classList.toggle('is-selected', on);
+        if (on) panel.removeAttribute('hidden');
+      });
+    }
+
+    function idFromHash() {
+      const hash = location.hash.slice(1);
+      return panels.some((panel) => panel.id === hash) ? hash : panels[0]?.id;
+    }
+
+    if (panels[0]) select(idFromHash() || panels[0].id);
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        event.preventDefault();
+        const id = tab.getAttribute('aria-controls');
+        if (!id) return;
+        history.replaceState(null, '', `#${id}`);
+        select(id);
+      });
+    });
+
+    tablist?.addEventListener('keydown', (event) => {
+      if (!(event instanceof KeyboardEvent)) return;
+      const current = tabs.findIndex((tab) => tab === document.activeElement);
+      if (current < 0) return;
+      let next = current;
+      if (event.key === 'ArrowRight') next = (current + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      const tab = tabs[next];
+      const id = tab?.getAttribute('aria-controls');
+      if (!tab || !id) return;
+      tab.focus();
+      history.replaceState(null, '', `#${id}`);
+      select(id);
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hash = location.hash.slice(1);
+      if (panels.some((panel) => panel.id === hash)) select(hash);
+    });
+  }
+</script>
