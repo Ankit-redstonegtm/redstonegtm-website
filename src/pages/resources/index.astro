@@ -1,41 +1,26 @@
 ---
-import { resourceTypeLabel, site } from '../../data/site';
+import FollowCards from '../../components/FollowCards.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
 import Base from '../../layouts/Base.astro';
 import { getResources } from '../../lib/resources';
 
 const resources = await getResources();
-const title = 'Resources | Redstone GTM';
+const title = 'Free GTM resources | Redstone GTM';
 const description =
-  'Notes, files, and examples on GTM engineering from Redstone GTM. Lead magnets, videos, case studies, and links. Book a call with Ankit Singh.';
+  'Guides, templates and plays for finding companies with a reason to buy. New ones go to The Insider Plays first.';
 ---
 
 <Base title={title} description={description}>
   <section class="page-intro" aria-labelledby="resources-title">
     <div class="wrap">
-      <p class="eyebrow">Library</p>
-      <h1 id="resources-title">Resources</h1>
-      <p class="lede">
-        One page per resource. Lead magnets ask for a name and a work email. Entries marked [Example] are stand-ins,
-        not client results. {site.name} is not a course library.
-      </p>
+      <h1 id="resources-title">Free GTM resources</h1>
+      <p class="lede">{description}</p>
     </div>
   </section>
-  <div class="wrap">
-    {
-      resources.length === 0 ? (
-        <p class="lede">Nothing published yet.</p>
-      ) : (
-        <div class="card-grid">
-          {resources.map((entry) => (
-            <a class="card" href={`/resources/${entry.id}`}>
-              <p class="tag">{resourceTypeLabel[entry.data.type]}</p>
-              <h2>{entry.data.title}</h2>
-              <p>{entry.data.description}</p>
-              <span class="more">Read</span>
-            </a>
-          ))}
-        </div>
-      )
-    }
+  <div class="wrap resources-page">
+    <div class="resource-grid">
+      {resources.map((entry) => <ResourceCard entry={entry} level={2} />)}
+    </div>
+    <FollowCards compact />
   </div>
 </Base>

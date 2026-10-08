@@ -340,6 +340,18 @@ export const home = {
       },
     ],
   },
+  follow: {
+    title: 'Not ready to talk yet? Learn how I find buyers.',
+    sub: 'I share the plays I use, free. Pick where you like to learn.',
+    latestLabel: 'Latest',
+  },
+  resources: {
+    title: 'Free tools for finding your next customers.',
+    sub: 'Coming soon. Subscribers to The Insider Plays get each one first.',
+    soon: 'Coming soon',
+    cta: 'Get it first',
+    all: 'See all resources →',
+  },
   finalCta: {
     title: "There are good customers outside your current list. Let's find them.",
     line: "You tell me what you sell. I tell you where I'd look first.",
@@ -352,6 +364,8 @@ export const home = {
     book: 'Book a call',
     email: 'ankit@redstonegtm.com',
     linkedin: 'LinkedIn',
+    youtube: 'YouTube',
+    substack: 'The Insider Plays',
     copyright: '© 2026 Redstone GTM',
   },
 } as const;

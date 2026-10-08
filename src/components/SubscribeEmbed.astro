@@ -1,0 +1,35 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  line: string;
+}
+
+const { line } = Astro.props;
+---
+
+<div class="subscribe-box">
+  <p>{line}</p>
+  <a class="btn substack-embed" href={site.subscribeUrl} data-embed={site.substackEmbed}>
+    Subscribe free<span class="sr-only"> (opens in a new tab)</span>
+  </a>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.substack-embed').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      const src = link.dataset.embed;
+      const box = link.closest('.subscribe-box');
+      if (!src || !box) return;
+      event.preventDefault();
+      const frame = document.createElement('iframe');
+      frame.className = 'substack-frame';
+      frame.src = src;
+      frame.title = 'Subscribe to The Insider Plays';
+      frame.loading = 'lazy';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      box.replaceChildren(frame);
+    });
+  });
+</script>

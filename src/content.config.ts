@@ -10,7 +10,11 @@ const resources = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    type: z.enum(['lead-magnet', 'video', 'case-study', 'link']),
+    type: z.enum(['lead-magnet', 'video', 'case-study', 'link', 'guide', 'template']),
+    format: z.string().optional(),
+    status: z.enum(['coming-soon']).optional(),
+    bullets: z.array(z.string()).default([]),
+    order: z.number().default(0),
     publishedAt: z.coerce.date(),
     draft: z.boolean().default(false),
     example: z.boolean().default(false),
